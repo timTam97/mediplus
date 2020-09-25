@@ -1,0 +1,3 @@
+[submodule "react-native-google-matrix"]
+	path = react-native-google-matrix
+	url = https://github.com/SKalt/react-native-google-matrix.git
