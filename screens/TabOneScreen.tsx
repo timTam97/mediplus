@@ -5,13 +5,6 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import * as DirectionUtil from '../components/MyDirectionAdapter'
 
-// function hi() {
-//   fetch("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=71+Argyle+Way+Wantirna+South&destinations=Garrisson+Drive+Glen+Waverley&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
-//     .then(response => response.json())
-//     .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text));
-
-// }
-
 export default function TabOneScreen() {
 
   console.log("hereeeee");

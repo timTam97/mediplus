@@ -2,12 +2,6 @@ import * as Location from 'expo-location';
 
 
 
-
-
-// Tim, keep in mind that fetch is a async function
-//yea i know
-// how do i export these functions
-// you happy?
 function callDirectionMatrix(origin: string, destination: string) {
     console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
         + origin +
@@ -20,7 +14,6 @@ function callDirectionMatrix(origin: string, destination: string) {
         .then(response => response.json())
         .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
         .catch((e) => "Unable to retrieve data from google services: " + e)
-
 }
 
 
@@ -42,21 +35,6 @@ export async function getLocGeocode(): Promise<Location.LocationGeocodedAddress[
     return Location.reverseGeocodeAsync({ latitude: loc.coords.latitude, longitude: loc.coords.longitude })
         .then((x) => { console.log(x); return x })
 }
-
-// lat: -37.837231
-// long: 144.996277
-// export declare type LocationGeocodedAddress = {
-//     city: string | null;
-//     district: string | null;
-//     street: string | null;
-//     region: string | null;
-//     subregion: string | null;
-//     country: string | null;
-//     postalCode: string | null;
-//     name: string | null;
-//     isoCountryCode: string | null;
-//     timezone: string | null;
-// };
 
 export async function getTravelTime(source: Location.LocationGeocodedAddress) {
     // we know it is hard coded
@@ -82,7 +60,6 @@ async function getTravelTimeInternal(source: Location.LocationGeocodedAddress, d
     destAddress = destAddress.replace(/ /g, "+");
 
     return callDirectionMatrix(srcAddress, destAddress);
-    // return Promise.resolve([srcAddress, destAddress]);
 }
 
 
