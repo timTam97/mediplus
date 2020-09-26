@@ -14,6 +14,7 @@ import User from '../screens/User';
 
 import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList } from '../types';
 import AvaliableClinics from '../screens/AvaliableClinics';
+import DateTimeSelect from '../screens/DateTimeSelect';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -107,6 +108,11 @@ function BookNavigator() {
         name="AvaliableClinics"
         component={AvaliableClinics}
         options={{ headerTitle: 'Avaliable Clinics' }}
+      />
+      <BookStack.Screen
+        name="DateTimeSelect"
+        component={DateTimeSelect}
+        options={{ headerTitle: 'Date & Time' }}
       />
     </BookStack.Navigator>
   );
