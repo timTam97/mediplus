@@ -4,9 +4,8 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { BookParamList, Services } from '../types'
-
-
 import { StyleSheet, View, Image, Text, SafeAreaView, ScrollView,TouchableOpacity,TouchableHighlight } from "react-native";
+import CupertinoSearchBarBasic from "../components/CupertinoSearchBarBasic";
 
 export default function Book({navigation}){
     const selectService = (service: Services) => {
@@ -16,6 +15,13 @@ export default function Book({navigation}){
     return(
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
+        <Text style={styles.appointmentMsg}>Find a Service</Text>
+        <Text style={styles.appointmentMsg2}>What are you after today?</Text>
+        <View style={styles.container}>
+      <CupertinoSearchBarBasic
+        style={styles.cupertinoSearchBarBasic}
+      ></CupertinoSearchBarBasic>
+    </View>
         
         <View style={styles.imageRow}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("General")}>
@@ -69,6 +75,8 @@ export default function Book({navigation}){
           ></Image>
         </TouchableHighlight>
 
+        
+
         </View>
         </ScrollView>
         </SafeAreaView>)
@@ -76,7 +84,7 @@ export default function Book({navigation}){
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1
+      flex: 1,
     },
     image: {
       width: 149,
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
     imageRow: {
       height: 149,
       flexDirection: "row",
-      marginTop: 219,
+      marginTop: 20,
       marginLeft: 25,
       marginRight: 29
     },
@@ -150,11 +158,30 @@ const styles = StyleSheet.create({
       marginTop: -16,
       marginLeft: 19
     },
+    appointmentMsg: {
+        fontFamily: "Lato_700Bold",
+        color: "#172285",
+        fontSize: 40,
+        height: 40,
+        width: 300,
+        marginTop: 10,
+        marginLeft: 25
+    },
+    appointmentMsg2: {
+        fontFamily: "Lato_400Regular",
+        color: "#A1A4B2",
+        fontSize: 18,
+        height: 18,
+        width: 300,
+        marginTop: 10,
+        marginLeft: 25
+    },
+
     cupertinoSearchBarBasic: {
-      height: 33,
-      width: 324,
-      backgroundColor: "#fff",
-      marginTop: 12,
-      marginLeft: 22
+        height: 35,
+        width: 324,
+        backgroundColor: "#F2F2F2",
+        paddingLeft: 24
     }
+
   });
