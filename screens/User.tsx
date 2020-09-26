@@ -14,7 +14,7 @@ export default function User({navigation}){
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
         <Text style={styles.appointmentMsg}>Afsar Sohan</Text>
-        <Text style={styles.appointmentMsg2}>DOB: 1998 pls fix links + insert ID</Text>
+        <Text style={styles.appointmentMsg2}>DOB: 1998   ID:M00273</Text>
         <View style={styles.container}>
      
     </View>
@@ -39,7 +39,7 @@ export default function User({navigation}){
         <View style={styles.image2Col}> 
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Medication')}>
           <Image
-            source={require("../assets/fram5/5.png")}
+            source={require("../assets/fram5/5v2.png")}
             resizeMode="contain"
             style={styles.image2}
           ></Image>
@@ -59,7 +59,7 @@ export default function User({navigation}){
         <View style={styles.image3Row}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
-            source={require("../assets/fram5/1.png")}
+            source={require("../assets/fram5/1v2.png")}
             resizeMode="contain"
             style={styles.image3}
           ></Image>
@@ -69,7 +69,7 @@ export default function User({navigation}){
         <View style={styles.image3Row}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
-            source={require("../assets/fram5/1.png")}
+            source={require("../assets/fram5/other.png")}
             resizeMode="contain"
             style={styles.image6}
           ></Image>
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     image5Row: {
         height: 150,
         flexDirection: "row",
-        marginTop: 0,
+        marginTop: -7,
         marginLeft: 10
       
       },
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 300,
         marginTop: 10,
-        marginLeft: 120
+        marginLeft: 110
     },
     appointmentMsg2: {
         fontFamily: "Lato_400Regular",
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         height: 18,
         width: 300,
-        marginTop: 10,
-        marginLeft: 120
+        marginTop: 5,
+        marginLeft: 110
     },
   });
