@@ -9,6 +9,17 @@ import {RootStackParamList} from '../types'
  
 export default function TabOneScreen({props}) {
 
+
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+
+
+
+
+
+export default function TabOneScreen() {
   console.log("hereeeee");
   // DirectionUtil.getTravel().then((x) => console.log(x))
   React.useEffect(() => {
