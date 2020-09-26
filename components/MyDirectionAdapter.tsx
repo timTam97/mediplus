@@ -1,13 +1,22 @@
+// One stop shop for location / mapview things
+
 import * as Location from 'expo-location';
 
+export type region = {
+    latitude: Number,
+    longitude: Number,
+    latitudeDelta: Number,
+    longitudeDelta: Number,
+}
 
 
+export const clinicLocation: region = {
+    latitude: -37.837231,
+    longitude: 144.996277,
+    latitudeDelta: 0.0001,
+    longitudeDelta: 0.0001,
+}
 
-
-// Tim, keep in mind that fetch is a async function
-//yea i know
-// how do i export these functions
-// you happy?
 function callDirectionMatrix(origin: string, destination: string) {
     console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
         + origin +
@@ -20,7 +29,6 @@ function callDirectionMatrix(origin: string, destination: string) {
         .then(response => response.json())
         .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
         .catch((e) => "Unable to retrieve data from google services: " + e)
-
 }
 
 
@@ -31,7 +39,7 @@ function recievingData(e: any) {
     return null;
 }
 
-export async function getLocGeocode(): Promise<Location.LocationGeocodedAddress[]> {
+async function getLocGeocode(): Promise<Location.LocationGeocodedAddress[]> {
     let loc = null;
     try {
         loc = await getLoc();
@@ -43,22 +51,7 @@ export async function getLocGeocode(): Promise<Location.LocationGeocodedAddress[
         .then((x) => { console.log(x); return x })
 }
 
-// lat: -37.837231
-// long: 144.996277
-// export declare type LocationGeocodedAddress = {
-//     city: string | null;
-//     district: string | null;
-//     street: string | null;
-//     region: string | null;
-//     subregion: string | null;
-//     country: string | null;
-//     postalCode: string | null;
-//     name: string | null;
-//     isoCountryCode: string | null;
-//     timezone: string | null;
-// };
-
-export async function getTravelTime(source: Location.LocationGeocodedAddress) {
+async function getTravelTime(source: Location.LocationGeocodedAddress) {
     // we know it is hard coded
     return getTravelTimeInternal(source,
         {
@@ -82,7 +75,6 @@ async function getTravelTimeInternal(source: Location.LocationGeocodedAddress, d
     destAddress = destAddress.replace(/ /g, "+");
 
     return callDirectionMatrix(srcAddress, destAddress);
-    // return Promise.resolve([srcAddress, destAddress]);
 }
 
 
@@ -95,6 +87,7 @@ async function getLoc(): Promise<Location.LocationObject> {
         accuracy: Location.Accuracy.BestForNavigation
     })
 }
-export async function getTravel(): Promise<string> {
+
+export async function getTravel() {
     return getTravelTime(await getLocGeocode().then(x => x[0]));
 }
