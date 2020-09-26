@@ -89,7 +89,7 @@ export default function User({navigation}){
 
 
         <View style={styles.image5Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => {navigation.navigate('Appointments')}}>
           <Image
             source={require("../assets/fram5/3.png")}
             resizeMode="contain"
