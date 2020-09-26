@@ -21,22 +21,15 @@ export default function TabOneScreen({props}) {
 
 export default function TabOneScreen() {
   console.log("hereeeee");
-  // DirectionUtil.getTravel().then((x) => console.log(x))
-  React.useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestPermissionsAsync();
-      if (status !== 'granted') { }
+  DirectionUtil.getTravel().then((x) => console.log(x))
 
-      let location = await Location.getCurrentPositionAsync({});
-      // setLocation(location);
-    })();
-  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabOneScreen.js" />
-      <MapView style={styles.mapStyle} region={DirectionUtil.clinicLocation} />
+      <MapView style={styles.mapStyle} region={DirectionUtil.clinicLocation} mapType={"satellite"} />
     </View>
   );
 }
