@@ -63,28 +63,28 @@ export default function Home(){
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medTwo.png")}
+                            source={require("../assets/med3.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/med1.png")}
+                            source={require("../assets/med4.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/med1.png")}
+                            source={require("../assets/med5.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/med1.png")}
+                            source={require("../assets/med6.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
@@ -124,9 +124,10 @@ const styles = StyleSheet.create({
       alignContent: 'center',
       justifyContent: 'center',
       alignItems: 'center',
+      marginHorizontal: 0,
       height: 200,
       paddingLeft: 10,
-      paddingRight: 50
+      paddingRight: 100
     },
     bottomContainer: {
         position: 'absolute',
