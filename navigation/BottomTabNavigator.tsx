@@ -7,7 +7,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 
 import Home from '../screens/Home';
-import Appointments from '../screens/Upcoming';
+import Upcoming from '../screens/Upcoming';
 import Book from '../screens/Book';
 import Medication from '../screens/Medication';
 import User from '../screens/User';
@@ -91,7 +91,7 @@ function AppointmentsNavigator() {
     <AppointmentsStack.Navigator>
       <AppointmentsStack.Screen
         name="Appointments"
-        component={Appointments}
+        component={Appointment}
         options={{ headerTitle: 'Appointments' }}
       />
       <AppointmentsStack.Screen
@@ -153,12 +153,6 @@ function UserNavigator() {
         component={HealthInsights}
         options={{ headerTitle: 'Health Insights' }}
       />
-      <UserStack.Screen
-        name="Appointments"
-        component={Appointment}
-        options={{ headerTitle: 'Appointments' }}
-      />
-
     </UserStack.Navigator>
   );
 }

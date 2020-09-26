@@ -40,5 +40,4 @@ export type MedicationParamList = {
 export type UserParamList = {
   User: undefined;
   HealthInsights: undefined;
-  Appointments: undefined;
 }
