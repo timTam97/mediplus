@@ -22,8 +22,14 @@ export default function Appointments({navigation}){
             </View>
             
             <View>
-                <Text style={{...styles.calandarDate, fontSize: 30}}>Future Appointments</Text>
+                <Text style={{...styles.calandarDate2, fontSize: 22}}>Future Appointments</Text>
+                
             </View>
+            <Image
+                    source={require("../assets/futureappts.png")}
+                        resizeMode="contain"
+                        style={styles.futureappointments}
+                ></Image>
         </View>
     )
 }
@@ -45,16 +51,26 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     calandar: {
-        marginTop:40,
+        marginTop:20,
     },
     calandarDate: {
         fontFamily: "Lato_700Bold",
         color: "#7A7D93",
+        fontSize: 20
+    },
+    calandarDate2: {
+        fontFamily: "Lato_700Bold",
+        color: "#7A7D93",
         fontSize: 20,
+        marginTop: 20
     },
     calandarImage: {
         width: "100%",
         height: 180,
         // backgroundColor: "#00FF00"
     },
+    futureappointments: {
+        width: '100%',
+        height: 340,
+    }
 });
