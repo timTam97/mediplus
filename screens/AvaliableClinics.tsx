@@ -1,7 +1,5 @@
 import React from 'react'
-import MapView from 'react-native-maps';
-import {StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native'
-import { white } from 'react-native-paper/lib/typescript/src/styles/colors';
+import { View, Text } from 'react-native'
 
 export default function AvaliableClinics({navigation, route}) {
     function movetoDateTime() {

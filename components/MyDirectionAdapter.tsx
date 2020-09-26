@@ -17,20 +17,18 @@ export const clinicLocation = {
     longitudeDelta: 0.01,
 }
 
-async function callDirectionMatrix(origin: string, destination: string) {
-    // console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
-    //     + origin +
-    //     "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
-    return await fetch(
+function callDirectionMatrix(origin: string, destination: string) {
+    console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
+        + origin +
+        "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
+    return fetch(
         "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
         + origin +
         "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
+        .then(x => { console.log(x); return x })
         .then(response => response.json())
-        .then(data => {
-            console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text);
-            return data.rows[0].elements[0].duration.text;
-        })
-    // .catch((e) => "Unable to retrieve data from google services: " + e)
+        .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
+        .catch((e) => "Unable to retrieve data from google services: " + e)
 }
 
 
@@ -50,7 +48,7 @@ async function getLocGeocode(): Promise<Location.LocationGeocodedAddress[]> {
         return Promise.reject();
     }
     return Location.reverseGeocodeAsync({ latitude: loc.coords.latitude, longitude: loc.coords.longitude })
-        .then((x) => x)
+        .then((x) => { console.log(x); return x })
 }
 
 async function getTravelTime(source: Location.LocationGeocodedAddress) {
@@ -76,7 +74,7 @@ async function getTravelTimeInternal(source: Location.LocationGeocodedAddress, d
     srcAddress = srcAddress.replace(/ /g, "+");
     destAddress = destAddress.replace(/ /g, "+");
 
-    return await callDirectionMatrix(srcAddress, destAddress);
+    return callDirectionMatrix(srcAddress, destAddress);
 }
 
 
