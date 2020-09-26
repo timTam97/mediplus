@@ -26,7 +26,7 @@ class UpdateTime extends React.Component {
     state = {
         mins: 48,
         secs: 0,
-        time: "00:00"
+        time: ""
     }
     render() {
         return <Text style={styles.time}>{this.state.time}</Text>;
@@ -35,7 +35,6 @@ class UpdateTime extends React.Component {
 
 class UpdateCountdown extends React.Component {
     componentDidMount() {
-
         setInterval(
             () => {
                 this.setState({
@@ -51,7 +50,7 @@ class UpdateCountdown extends React.Component {
         mins: 48,
         counter: 0,
         // message: "You have " + Math.ceil(Math.ceil(Math.abs(Date.now() - appointmentTime)) / (1000 * 60 * 60)) + " minutes until your appointment at South Yarra Clinic"
-        message: "potato"
+        message: ""
     }
     render() {
         return <Text style={styles.appointmentMsg}>{this.state.message}</Text>;
@@ -101,10 +100,10 @@ export default function Appointments({ navigation }: any) {
     return (
         <View style={styles.container}>
             <MapView style={styles.mapStyle} initialRegion={DirectionUtil.clinicLocation}></MapView>
-            <UpdateTime>time</UpdateTime>
-            <UpdateCountdown>countdown</UpdateCountdown>
+            <UpdateTime></UpdateTime>
+            <UpdateCountdown></UpdateCountdown>
             {/* <Text style={styles.departure}>potato</Text> */}
-            <UpdateDepartureTime>potato</UpdateDepartureTime>
+            <UpdateDepartureTime></UpdateDepartureTime>
             <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => { console.log("TAP"); navigation.navigate("VirtualQueue") }}>
                 <Image
                     source={require("../assets/images/ArrivedButton.png")}
