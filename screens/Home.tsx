@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     image6: {
         width: 129,
         height: 140,
-        marginHorizontal: 25
+        marginHorizontal: 10
       },
     scrollViewContainerStyle: {
       alignContent: 'center',
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginHorizontal: 0,
       height: 200,
-      paddingLeft: 10,
+      paddingLeft: 20,
       paddingRight: 100
     },
     bottomContainer: {
