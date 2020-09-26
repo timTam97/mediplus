@@ -26,14 +26,14 @@ export default function Book({navigation}){
         <View style={styles.imageRow}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("General")}>
           <Image
-            source={require("../assets/service/gp.png")}
+            source={require("../assets/service/gpv2.png")}
             resizeMode="contain"
             style={styles.image}>
             </Image>
           </TouchableHighlight>
           <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("X-Ray")}>
           <Image
-            source={require("../assets/service/xray.png")}
+            source={require("../assets/service/xrayv2.png")}
             resizeMode="contain"
             style={styles.image5}
           ></Image>
@@ -44,14 +44,14 @@ export default function Book({navigation}){
         <View style={styles.image2Row}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
           <Image
-            source={require("../assets/service/obgyn.png")}
+            source={require("../assets/service/obgynv2.png")}
             resizeMode="contain"
             style={styles.image2}
           ></Image>
             </TouchableHighlight>
             <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Cardio')}>
           <Image
-            source={require("../assets/service/Cardiology.png")}
+            source={require("../assets/service/Cardiologyv2.png")}
             resizeMode="contain"
             style={styles.image4}
           ></Image>
@@ -61,7 +61,7 @@ export default function Book({navigation}){
         <View style={styles.image3Row}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Pathology')}>
           <Image
-            source={require("../assets/service/Pathology.png")}
+            source={require("../assets/service/Pathologyv2.png")}
             resizeMode="contain"
             style={styles.image3}
           ></Image>
@@ -69,14 +69,11 @@ export default function Book({navigation}){
 
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Orthopedics')}>
           <Image
-            source={require("../assets/service/orthopedics.png")}
+            source={require("../assets/service/orthopedicsv2.png")}
             resizeMode="contain"
             style={styles.image6}
           ></Image>
         </TouchableHighlight>
-
-        
-
         </View>
         </ScrollView>
         </SafeAreaView>)
