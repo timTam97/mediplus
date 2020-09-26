@@ -10,12 +10,22 @@ const imageHeight = 150
 export default function Home(){
     return(
         <SafeAreaView style={styles.container}>
-            <View style={styles.cardContainer}>
-                <TouchableOpacity style ={styles.button1}>
+            <View style={styles.headerContent1}>
+                <Text style={styles.textStyle}>Upcoming Appointments</Text>
+            </View>
+            <TouchableOpacity style ={styles.button2}>
                     <Image
                         source={require("../assets/appointmentOne.png")}
                         resizeMode="contain"
                         style={styles.appointment1}
+                    ></Image>
+                </TouchableOpacity>
+            <View>
+                <TouchableOpacity style ={styles.button1}>
+                    <Image
+                        source={require("../assets/appointmenttoo.png")}
+                        resizeMode="contain"
+                        style={styles.appointment2}
                     ></Image>
                 </TouchableOpacity>
             </View>
@@ -28,7 +38,7 @@ export default function Home(){
                 </TouchableOpacity>
             <SafeAreaView style={styles.bottomContainer}>
                 <View style={styles.headerContent}>
-                    <Text style={styles.textStyle}>Medications</Text>
+                    <Text style={styles.textStyle}>Your Medications</Text>
                 </View>
                 <ScrollView
                     contentContainerStyle={styles.scrollViewContainerStyle}
@@ -84,6 +94,13 @@ const styles = StyleSheet.create({
         top: 5,
         justifyContent: "center"
       },
+      headerContent1: {
+        paddingLeft: 40,
+        position: 'absolute',
+        left: -10,
+        top: 82,
+        justifyContent: "center"
+      },
     textStyle: {
         fontSize: 20,
         color: "#807B7B",
@@ -125,12 +142,14 @@ const styles = StyleSheet.create({
     bookImage: {
         paddingHorizontal: 20,
         position: 'relative',
-        top: 70,
+        top: 100,
         width: '100%',
         height: '100%'
     },
     button1: {
-        alignItems: 'center'
+        alignItems: 'center',
+        top: 100,
+        paddingHorizontal: 20
     },
     appointment1: {
         paddingHorizontal: 20,
@@ -147,5 +166,20 @@ const styles = StyleSheet.create({
         height: '100%',
         position: "absolute",
         top: 0
-    }
+    },
+    appointment2: {
+        paddingHorizontal: 0,
+        paddingRight: 10,
+        position: 'absolute',
+        top: 40,
+        alignItems: 'center',
+        width: 400,
+        height: 400,
+        left: 4
+    },
+    button2: {
+        alignItems: 'center',
+        top: 0,
+        paddingHorizontal: 20
+    },
   });
