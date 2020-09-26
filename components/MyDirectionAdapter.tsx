@@ -17,14 +17,16 @@ export const clinicLocation = {
     longitudeDelta: 0.01,
 }
 
-async function callDirectionMatrix(origin: string, destination: string) {
+function callDirectionMatrix(origin: string, destination: string) {
     // console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
     //     + origin +
     //     "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
-    return await fetch(
+    return fetch(
         "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
-        + origin +
-        "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
+        + origin
+        + "&destinations="
+        + destination
+        + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
         .then(response => response.json())
         .then(data => {
             console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text);
