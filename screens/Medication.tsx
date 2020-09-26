@@ -9,7 +9,6 @@ const timeToString = (time) => {
 
 export default function Medication() {
     const [items, setItems] = useState({});
-
     const loadItems = (day) => {
         setTimeout(() => {
           for (let i = -15; i < 85; i++) {
