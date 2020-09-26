@@ -12,7 +12,7 @@ export default function Appointments({navigation}){
             </View>
             <View style={styles.calandar}>
             <Text style={styles.calandarDate}>Today, September 27</Text>
-            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Upcoming')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Upcoming')}>
                 <Image
                     source={require("../assets/images/panel.png")}
                     resizeMode="contain"

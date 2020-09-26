@@ -150,14 +150,6 @@ const styles = StyleSheet.create({
         alignItems: "center",        
         marginTop: 405,
     },
-    // bookImage: {
-    //     paddingHorizontal: 20,
-    //     position: 'relative',
-    //     top: 98,
-    //     width: '100%',
-    //     height: '100%',
-    //     backgroundColor: 'red'
-    // },
     bookImage: {
         paddingHorizontal: 20,
         position: 'relative',
@@ -172,10 +164,11 @@ const styles = StyleSheet.create({
     appointment1: {
         paddingHorizontal: 20,
         position: 'absolute',
-        top: 30,
+        top: 160,
         alignContent: 'center',
         width: 400,
-        height: 400,
+        height: 122.5,
+        left: 10,
     },
     cardContainer: {
         flex: 3,
