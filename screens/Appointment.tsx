@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import Navigation from '../navigation';
 
-export default function Appointments(){
+export default function Appointments({navigation}){
     return(
         <View style={styles.container}>
             <View>
@@ -10,12 +12,15 @@ export default function Appointments(){
             </View>
             <View style={styles.calandar}>
             <Text style={styles.calandarDate}>Today, September 27</Text>
-            <Image
-            source={require("../assets/images/panel.png")}
-                resizeMode="contain"
-                style={styles.calandarImage}
-            ></Image>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Upcoming')}>
+                <Image
+                    source={require("../assets/images/panel.png")}
+                    resizeMode="contain"
+                    style={styles.calandarImage}
+                ></Image>
+            </TouchableOpacity>
             </View>
+            
             <View>
                 <Text style={{...styles.calandarDate, fontSize: 30}}>Future Appointments</Text>
             </View>
@@ -51,5 +56,5 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 180,
         // backgroundColor: "#00FF00"
-    }
+    },
 });

@@ -95,6 +95,11 @@ function AppointmentsNavigator() {
         options={{ headerTitle: 'Appointments' }}
       />
       <AppointmentsStack.Screen
+        name="Upcoming"
+        component={Upcoming}
+        options={{ headerTitle: 'Upcoming' }}
+      />
+      <AppointmentsStack.Screen
         name="VirtualQueue"
         component={VirtualQueue}
       // options={{ headerTitle: 'Appointments' }}

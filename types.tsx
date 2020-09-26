@@ -22,6 +22,7 @@ export type HomeParamList = {
 
 export type AppointmentsParamList = {
   Appointments: undefined;
+  Upcoming: undefined;
   VirtualQueue: undefined;
 }
 
