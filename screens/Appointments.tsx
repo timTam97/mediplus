@@ -8,15 +8,25 @@ var appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000))
 
 class UpdateTime extends React.Component {
+    // not time anymore, more of a countdown
     componentDidMount() {
-
         setInterval(
-            () => this.setState({ time: (new Date()).getHours() + ":" + (new Date()).getMinutes() + ":" + (new Date()).getSeconds() }),
+            () => {
+                let newMins = (this.state.secs === 0) ? this.state.mins - 1 : this.state.mins;
+                let newSecs = (this.state.secs !== 0) ? this.state.secs - 1 : 59;
+                this.setState({
+                    mins: newMins,
+                    secs: newSecs,
+                    time: newMins + ":" + newSecs,
+                })
+            },
             1000
         );
     }
     state = {
-        time: (new Date()).getHours() + ":" + (new Date()).getMinutes() + ":" + (new Date()).getSeconds()
+        mins: 48,
+        secs: 0,
+        time: "00:00"
     }
     render() {
         return <Text style={styles.time}>{this.state.time}</Text>;
@@ -29,13 +39,17 @@ class UpdateCountdown extends React.Component {
         setInterval(
             () => {
                 this.setState({
-                    message: "You have " + Math.ceil(Math.ceil(Math.abs(appointmentTime - Date.now())) / (1000 * 60 * 60)) + " minutes until your\nappointment at South Yarra Clinic."
+                    mins: (this.state.counter % 60 === 0) ? this.state.mins - 1 : this.state.mins,
+                    counter: this.state.counter + 1,
+                    message: "You have " + this.state.mins + " minutes until your\nappointment at South Yarra Clinic."
                 }); /*console.log(appointmentTime - Date.now() / (1000 * 60))*/
             },
             1000
         );
     }
     state = {
+        mins: 48,
+        counter: 0,
         // message: "You have " + Math.ceil(Math.ceil(Math.abs(Date.now() - appointmentTime)) / (1000 * 60 * 60)) + " minutes until your appointment at South Yarra Clinic"
         message: "potato"
     }
@@ -142,7 +156,7 @@ const styles = StyleSheet.create({
     appointmentMsg: {
         fontFamily: "Lato_400Regular",
         fontSize: 20,
-        color: "#121212", 
+        color: "#121212",
         marginTop: 10,
         marginLeft: 25
     },
