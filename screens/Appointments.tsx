@@ -53,7 +53,6 @@ type departState = {
 
 class UpdateDepartureTime extends React.Component {
     componentDidMount() {
-
         setInterval(
             () => {
                 // console.log(this.state.counter)
