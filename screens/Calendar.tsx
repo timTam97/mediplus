@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View, StatusBar, Text, Image, Dimensions } from "react-native";
+import { StyleSheet, View, StatusBar, Text, Image, Dimensions, TouchableOpacity } from "react-native";
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-function Explore() {
+function Explore({}) {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -14,6 +14,7 @@ function Explore() {
       ></Image>
       <View style={styles.calendar}>
         <CalendarList
+          style={{maxHeight: 300}}
           pastScrollRange={24}
           futureScrollRange={24}
           horizontal
@@ -31,7 +32,7 @@ function Explore() {
         resizeMode="contain"
         style={styles.image3}
       ></Image>
-      <Text style={styles.noThanks}>NO THANKS</Text>
+    <Text style={styles.noThanks}>NO THANKS</Text>
     </View>
   );
 }
@@ -42,26 +43,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(249,249,249,1)"
   },
-
-  calendar: {
-    top: -35
+  button:  { 
+    alignItems: "center",   
   },
-
+  calendar: {
+    top: -45
+  },
   dateTime: {
-    fontFamily: "Lato_400Regular",
+    fontFamily: "Lato_700Bold",
     color: "rgba(23,34,133,1)",
     fontSize: 35,
-    marginTop: 20,
+    marginTop: 30,
     marginLeft: 34
   },
   text74: {
     fontFamily: "Lato_400Regular",
+    top: -12,
     color: "rgba(161,164,178,1)",
-    marginTop: -500,
+    marginTop: -440,
     marginLeft: 34
   },
   image: {
-    top: 10,
+    top: 0,
     alignSelf: "center",
     width: Dimensions.get('window').width
   },
@@ -70,14 +73,16 @@ const styles = StyleSheet.create({
     height: 123,
     width: 295,
     marginTop: 291,
-    marginLeft: 32
+    marginLeft: 15,
+    bottom: -100
+
   },
   image3: {
     alignSelf: "center",
     height: 71,
     width: 278,
     marginTop: 8,
-    // marginLeft: 44
+    bottom: -95
   },
   noThanks: {
     alignSelf: "center",
@@ -85,6 +90,7 @@ const styles = StyleSheet.create({
     color: "rgba(161,164,178,1)",
     fontSize: 10,
     marginTop: 5,
+    bottom: -92,
   }
 });
 
