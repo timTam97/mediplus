@@ -42,7 +42,6 @@ class UpdateCountdown extends React.Component {
             1000
         );
     }
-
     state = {
         // message: "You have " + Math.ceil(Math.ceil(Math.abs(Date.now() - appointmentTime)) / (1000 * 60 * 60)) + " minutes until your appointment at South Yarra Clinic"
         message: "potato"
@@ -97,9 +96,11 @@ export default function Appointments() {
     // DirectionUtil.getTravel().then((x) => console.log(x))
     return (
         <View style={styles.container}>
-            <MapView style={styles.materialMapView}></MapView>
+            <MapView style={styles.mapStyle} initialRegion={DirectionUtil.clinicLocation}></MapView>
             <UpdateTime>time</UpdateTime>
             <UpdateCountdown>countdown</UpdateCountdown>
+            {/* <Text style={styles.departure}>potato</Text> */}
+            <UpdateDepartureTime>potato</UpdateDepartureTime>
         </View>
     );
 }
@@ -107,21 +108,31 @@ export default function Appointments() {
 
 const styles = StyleSheet.create({
     container: {
+        alignContent: "center",
         flex: 1
     },
-    materialMapView: {
-        height: 193,
+    mapStyle: {
+        // position: "absolute",
+        // alignContent: "center",
+        alignSelf: "center",
+        borderWidth: 1,
+        borderRadius: 17,
+        height: 300,
         width: 322,
-        marginTop: 225,
-        marginLeft: 27
+        marginTop: 130,
+        marginLeft: 20,
+        marginRight: 20
+        // width: Dimensions.get('window').width,
+        // height: Dimensions.get('window').height,
+        // radi: Dimensions.get('window').width / 2
     },
     time: {
         fontFamily: "Lato_700Bold",
         fontSize: 60,
-        color: "#121212",
+        color: "#172285",
         height: 58,
         width: 200,
-        marginTop: -400,
+        marginTop: -415,
         marginLeft: 25
     },
     appointmentMsg: {
