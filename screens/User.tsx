@@ -107,16 +107,18 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     image: {
-      width: 180,
+      width: 210,
       height: 180,
-      marginRight: -10,
-      marginLeft: -13
+      marginRight: -5,
+      marginLeft: -20, 
+      marginTop: 20
     },
     image5: {
-      width: 180,
+      width: 210,
       height: 175,
       marginRight: 0,
-      marginLeft:5
+      marginLeft:-29,
+      marginTop: 20
     },
     imageRow: {
       height: 149,
@@ -129,13 +131,14 @@ const styles = StyleSheet.create({
     image2: {
       width: 330,
       height: 150,
-      marginLeft:-30
+      marginLeft:-20, 
+      marginTop: 25
     },
     image4: {
       width: 149,
       height: 160,
-      marginLeft: -110,
-      marginTop: 5
+      marginLeft: -95,
+      marginTop: 20
     },
     image2Col: {
       height: 149,
@@ -155,24 +158,25 @@ const styles = StyleSheet.create({
       width: 300,
       height: 250,
       marginLeft: -95,
-      marginTop: -230
+      marginTop: -210
     },
     image6: {
         width: 300,
         height: 250,
         marginLeft: -95,
-        marginTop: -290
+        marginTop: -270
     },
     image7: {
-        width: 350,
+        width: 345,
         height: 250,
-        marginLeft: -120,
+        marginLeft: -105,
+        bottom: -18
     },
     image8: {
         width: 345,
         height: 60,
         marginLeft: -120,
-        marginTop: -465
+        marginTop: -505
     },
     image3Row: {
       height: 150,
@@ -224,13 +228,13 @@ const styles = StyleSheet.create({
         fontSize: 40,
         height: 40,
         width: 300,
-        marginTop: 10,
+        marginTop: 40,
         marginLeft: 110
     },
     appointmentMsg2: {
         fontFamily: "Lato_400Regular",
         color: "#A1A4B2",
-        fontSize: 18,
+        fontSize: 17,
         height: 18,
         width: 300,
         marginTop: 5,
@@ -240,9 +244,8 @@ const styles = StyleSheet.create({
       fontFamily: "Lato_700Bold",
       color: "#7A7D95",
       fontSize: 20,
-      height: 18,
       width: 300,
-      marginTop: -25,
-      marginLeft: 25
+      marginTop: 8,
+      marginLeft: 35
   },
   });
