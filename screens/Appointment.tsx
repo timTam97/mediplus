@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 
 export default function Appointments(){
     return(
@@ -8,8 +8,16 @@ export default function Appointments(){
                 <Text style={styles.dateTime}>Appointments</Text>
                 <Text style={styles.text74}>Here are all of your appointments.</Text>
             </View>
+            <View style={styles.calandar}>
+            <Text style={styles.calandarDate}>Today, September 27</Text>
+            <Image
+            source={require("../assets/images/panel.png")}
+                resizeMode="contain"
+                style={styles.calandarImage}
+            ></Image>
+            </View>
             <View>
-            <Text>Today, September 27</Text>
+                <Text style={{...styles.calandarDate, fontSize: 30}}>Future Appointments</Text>
             </View>
         </View>
     )
@@ -31,4 +39,17 @@ const styles = StyleSheet.create({
         fontSize: 35,
         marginTop: 30,
     },
+    calandar: {
+        marginTop:40,
+    },
+    calandarDate: {
+        fontFamily: "Lato_700Bold",
+        color: "#7A7D93",
+        fontSize: 20,
+    },
+    calandarImage: {
+        width: "100%",
+        height: 180,
+        // backgroundColor: "#00FF00"
+    }
 });
