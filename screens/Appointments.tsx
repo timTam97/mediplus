@@ -111,9 +111,8 @@ const styles = StyleSheet.create({
     },
     image: {
         //scale factor: 5.59375
-        marginTop: 50,
-        width: 280,
-        height: 50,
+        marginTop: 30,
+        marginBottom: 50,
         alignSelf: "center"
     },
     mapStyle: {
@@ -124,7 +123,8 @@ const styles = StyleSheet.create({
         borderRadius: 17,
         height: 300,
         width: 322,
-        marginTop: 130,
+        marginTop: 150,
+        top: 30,
         marginLeft: 20,
         marginRight: 20
         // width: Dimensions.get('window').width,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
     time: {
         fontFamily: "Lato_700Bold",
-        fontSize: 60,
+        fontSize: 50,
         color: "#172285",
         height: 58,
         width: 200,
@@ -142,18 +142,15 @@ const styles = StyleSheet.create({
     },
     appointmentMsg: {
         fontFamily: "Lato_400Regular",
-        color: "#121212",
-        height: 36,
-        width: 186,
+        fontSize: 20,
+        color: "#121212", 
         marginTop: 10,
         marginLeft: 25
     },
     departure: {
         fontFamily: "Lato_400Regular",
-        fontSize: 24,
-        height: 56,
-        width: 300,
-        marginTop: 325,
+        fontSize: 20,
+        marginTop: 350,
         marginLeft: 25
     }
 });
