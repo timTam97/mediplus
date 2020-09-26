@@ -7,7 +7,7 @@ const totalPadding = 26 * 3 // left-side, in-between, right-side
 const imageWidth = (screenWidth - totalPadding) / 2
 const imageHeight = 150
 
-export default function Home(){
+export default function Home({ navigation }){
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.greetingContainer}>
@@ -37,7 +37,7 @@ export default function Home(){
                     ></Image>
                 </TouchableOpacity>
             </View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Book', {})}>
                     <Image
                         source={require("../assets/bookAppointment.png")}
                         resizeMode="contain"
