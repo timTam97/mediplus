@@ -8,38 +8,36 @@ function Explore() {
       <StatusBar hidden />
       <Text style={styles.dateTime}>Date &amp; Time</Text>
 
-      <Text style={styles.text74}>Select from the available times:</Text>
       <Image
-        source={require("../assets/images/image_zYdL..png")}
+        source={require("../assets/images/CalendarTop.png")}
         resizeMode="contain"
         style={styles.image}
       ></Image>
+
+      <View style = {styles.calendar}>
+      <CalendarList
+        pastScrollRange={24}
+        futureScrollRange={24}
+        horizontal
+        pagingEnabled
+        />
+      </View>
+
+      <Text style={styles.text74}>Select from the available times:</Text>
+
       <Image
-        source={require("../assets/images/image_tz6O..png")}
+        source={require("../assets/images/calendartimes.png")}
         resizeMode="contain"
         style={styles.image2}
       ></Image>
+
       <Image
-        source={require("../assets/images/image_AHW9..png")}
+        source={require("../assets/images/saveButtonCalendar.png")}
         resizeMode="contain"
         style={styles.image3}
       ></Image>
       <Text style={styles.noThanks}>NO THANKS</Text>
-
-      <View style = {styles.calendar}>
-      <CalendarList
-        // Enable horizontal scrolling, default = false
-        horizontal={true}
-        // Enable paging on horizontal, default = false
-        pagingEnabled={true}
-        // Set custom calendarWidth.
-        calendarWidth={400}
-        // style = {styles.calendar}
-        />
-      </View>
     </View>
-    
-
   );
 }
 
@@ -50,27 +48,24 @@ const styles = StyleSheet.create({
   },
 
   calendar: { 
-      top: 0
+      top: 50
   },
 
   dateTime: {
-    fontFamily: "roboto-500",
+    fontFamily: "Lato_400Regular",
     color: "rgba(23,34,133,1)",
     fontSize: 35,
     marginTop: 78,
     marginLeft: 34
   },
   text74: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Lato_400Regular",
     color: "rgba(161,164,178,1)",
     marginTop: 328,
     marginLeft: 34
   },
   image: {
-    height: 46,
-    width: 353,
-    marginTop: -322,
-    marginLeft: 3
+    top: 10
   },
   image2: {
     height: 123,
@@ -85,7 +80,7 @@ const styles = StyleSheet.create({
     marginLeft: 44
   },
   noThanks: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Lato_400Regular",
     color: "rgba(161,164,178,1)",
     fontSize: 10,
     marginTop: 5,
