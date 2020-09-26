@@ -37,6 +37,13 @@ export default function Medication() {
     return(
         <SafeAreaView style={{flex: 1}}>
             <Text style={styles.title}>Medication</Text>
+            <View style={styles.agenda}>
+                <Agenda
+                    items={items}
+                    loadItemsForMonth={loadItems}
+                    selected={'2017-05-16'}
+                />
+            </View>
             <View style={styles.containerDailyMeds}>
                 <Image
                     source={require("../assets/dailymedstaken.png")}
@@ -45,16 +52,8 @@ export default function Medication() {
                 ></Image>
             </View>
             <Text style={styles.month}>September</Text>
-
-            <View style={styles.agenda}>
-                <Agenda
-                    items={items}
-                    loadItemsForMonth={loadItems}
-                    selected={'2017-05-16'}
-                />
-            </View>
-            
          </SafeAreaView>
+         
     )
 }
 
@@ -63,21 +62,21 @@ export const styles = StyleSheet.create({
         fontFamily: "Lato_700Bold",
         color: "rgba(23,34,133,1)",
         fontSize: 35,
-        marginTop: 16,
+        marginTop: 30,
         marginLeft: 34
     },
     container: {
         flex: 1
     },
     month: { 
-        fontFamily: "Lato_400Regular",
+        fontFamily: "Lato_700Bold",
         color: "rgba(23,34,133,1)",
         fontSize: 17,
-        top: 15,
+        top: -570,
         marginLeft: 34
     },
     dailyMeds: {
-        marginTop: 16,
+        top: -570,
         marginLeft: 34,
         paddingHorizontal: 20,
         position: 'absolute',
@@ -93,6 +92,6 @@ export const styles = StyleSheet.create({
     },
     agenda: {
         flex: 1, 
-        top: 30
+        top: 120
     }
 });
