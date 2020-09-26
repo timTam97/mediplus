@@ -45,6 +45,7 @@ export default function User({navigation}){
           ></Image>
             </TouchableHighlight>
         </View>
+        <Text style={styles.appointmentMsg22}>Next appointments (23)</Text>
 
         <View style={styles.image2Col}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
       width: 149,
       height: 160,
       marginLeft: -110,
-      marginTop: -5
+      marginTop: 5
     },
     image2Col: {
       height: 149,
@@ -154,13 +155,13 @@ const styles = StyleSheet.create({
       width: 300,
       height: 250,
       marginLeft: -95,
-      marginTop: -250
+      marginTop: -230
     },
     image6: {
         width: 300,
         height: 250,
         marginLeft: -95,
-        marginTop: -305
+        marginTop: -290
     },
     image7: {
         width: 350,
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
         width: 345,
         height: 60,
         marginLeft: -120,
-        marginTop: -600
+        marginTop: -465
     },
     image3Row: {
       height: 150,
@@ -181,11 +182,10 @@ const styles = StyleSheet.create({
     
     },
     image4Row: {
-        height: 150,
+        height: 5,
         flexDirection: "row",
-        marginTop: -380,
+        marginTop: -360,
         marginLeft: 135
-      
     },
     image5Row: {
         height: 150,
@@ -236,4 +236,13 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 110
     },
+    appointmentMsg22: {
+      fontFamily: "Lato_700Bold",
+      color: "#7A7D95",
+      fontSize: 20,
+      height: 18,
+      width: 300,
+      marginTop: -25,
+      marginLeft: 25
+  },
   });
