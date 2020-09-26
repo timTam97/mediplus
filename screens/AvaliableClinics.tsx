@@ -1,6 +1,7 @@
 import React from 'react'
 import MapView from 'react-native-maps';
-import {StyleSheet, View, Text, Dimensions } from 'react-native'
+import {StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native'
+import { white } from 'react-native-paper/lib/typescript/src/styles/colors';
 
 export default function AvaliableClinics({navigation, route}){
     let servicetype = null;
@@ -11,10 +12,11 @@ export default function AvaliableClinics({navigation, route}){
         <View style={styles.container}>
         <MapView style={styles.mapStyle} />
         <Text style={styles.foundText}>Here is what we found for {servicetype}</Text>
-        <View style={styles.boxes}>
-            <Text>Hello</Text>
-            <Text>How are you</Text>
-        </View>
+        <TouchableOpacity style={styles.boxes} activeOpacity={0.8}>
+            <Text style={styles.boxTitle}>South Yarra Clinic</Text>
+            <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
+            <Text style={styles.boxDistance}>3 km</Text>
+        </TouchableOpacity>
         </View>
     )
 }
@@ -49,7 +51,32 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 15,
         marginTop: 10,
-        justifyContent: 'center',
         height: 100,
+        paddingTop: 18,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
     },
+    boxTitle: {
+        fontFamily: "Lato_900Black",
+        color: "#FFF",
+        fontSize: 25,
+        marginBottom:10
+    },
+    boxAddress: {
+        fontFamily: "Lato_400Regular",
+        color: "#FFF",
+        fontSize: 15,
+    },
+    boxDistance: {
+        fontFamily: "Lato_900Black",
+        color: "#FFF",
+        fontSize: 25,
+        position: "absolute",
+        left: "85%",
+        top: "50%",
+        transform: [
+            {translateY: -1}
+        ]
+    }
 });
