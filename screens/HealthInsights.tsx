@@ -8,19 +8,31 @@ export default function HealthInsights(){
         <View style={styles.container}>
             <View style={styles.table}>
                 <View style={styles.row}>
-                    <View style={styles.item}>
-
+                    <View style={{...styles.item, backgroundColor: "#D2E1FF"}}>
+                    <Image style={{height:"100%", width:"100%", borderRadius: 15}}
+                        source={require("../assets/images/Heartbeat.png")}
+                        resizeMode="contain">
+                        </Image>
                     </View>
                     <View style={styles.item}>
-                        <Text>2</Text>
+                        <Image style={{height:"100%", width:"100%", borderRadius: 15}}
+                        source={require("../assets/images/Water.png")}
+                        resizeMode="contain">
+                        </Image>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <View style={styles.item}>
-                        <Text>3</Text>
+                        <Image style={{height:"100%", width:"100%", borderRadius: 15}}
+                        source={require("../assets/images/Activity.png")}
+                        resizeMode="contain">
+                        </Image>
                     </View>
-                    <View style={styles.item}>
-                        <Text>4</Text>
+                    <View style={{...styles.item, backgroundColor: "#D2E1FF"}}>
+                        <Image style={{height:"100%", width:"100%", borderRadius: 15}}
+                        source={require("../assets/images/Calories.png")}
+                        resizeMode="contain">
+                        </Image>
                     </View>
                 </View>
             </View>
@@ -28,7 +40,7 @@ export default function HealthInsights(){
                 <Image style={{height:"100%", width:"100%", borderRadius: 15}}
                 source={require("../assets/images/combinedCharts.png")}
                 resizeMode="contain">
-                    </Image>
+                </Image>
             </View>
         </View>
     )
@@ -60,7 +72,7 @@ const styles = StyleSheet.create({
     item: {
         width: 165,
         height: 130,
-        borderRadius: 10,
+        borderRadius: 15,
         backgroundColor: "#6681FF",
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
