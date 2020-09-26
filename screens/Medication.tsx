@@ -44,6 +44,8 @@ export default function Medication() {
                     style={styles.dailyMeds}
                 ></Image>
             </View>
+            <Text style={styles.month}>September</Text>
+
             <View style={styles.agenda}>
                 <Agenda
                     items={items}
@@ -51,6 +53,7 @@ export default function Medication() {
                     selected={'2017-05-16'}
                 />
             </View>
+            
          </SafeAreaView>
     )
 }
@@ -65,6 +68,13 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1
+    },
+    month: { 
+        fontFamily: "Lato_400Regular",
+        color: "rgba(23,34,133,1)",
+        fontSize: 17,
+        top: 15,
+        marginLeft: 34
     },
     dailyMeds: {
         marginTop: 16,
