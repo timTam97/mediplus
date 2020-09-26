@@ -54,6 +54,7 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="pill" color={color} size={25} style={{ marginBottom: -3 }} />,
         }}
       />
+      
       <BottomTab.Screen
         name="User"
         component={UserNavigator}
@@ -147,6 +148,19 @@ function UserNavigator() {
         options={{ headerTitle: 'User' }}
       />
     </UserStack.Navigator>
+  );
+}
+
+const CalendarStack = createStackNavigator<UserParamList>();
+  function CalendarNavigator() {
+  return (
+    <CalendarStack.Navigator>
+      <CalendarStack.Screen
+        name="User"
+        component={User}
+        options={{ headerTitle: 'Calendar' }}
+      />
+    </CalendarStack.Navigator>
   );
 }
 
