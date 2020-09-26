@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Svg, { Ellipse } from "react-native-svg";
 
-function Explore() {
+export default function Explore() {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -350,5 +350,3 @@ const styles = StyleSheet.create({
     marginRight: -86
   }
 });
-
-export default Explore;

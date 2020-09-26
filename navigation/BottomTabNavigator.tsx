@@ -11,6 +11,7 @@ import Appointments from '../screens/Appointments';
 import Book from '../screens/Book';
 import Medication from '../screens/Medication';
 import User from '../screens/User';
+import VirtualQueue from "../screens/VirtualQueue"
 
 import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList } from '../types';
 import AvaliableClinics from '../screens/AvaliableClinics';
@@ -90,6 +91,11 @@ function AppointmentsNavigator() {
         name="Appointments"
         component={Appointments}
         options={{ headerTitle: 'Appointments' }}
+      />
+      <AppointmentsStack.Screen
+        name="VirtualQueue"
+        component={VirtualQueue}
+      // options={{ headerTitle: 'Appointments' }}
       />
     </AppointmentsStack.Navigator>
   );

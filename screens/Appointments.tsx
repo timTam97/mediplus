@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, TouchableHighlight, Image } from 'react-native';
 import MapView from 'react-native-maps';
-// import { Text, View } from '../components/Themed';
 import * as DirectionUtil from '../components/MyDirectionAdapter'
 import * as Location from 'expo-location';
 import { Text, View } from 'react-native';
-import { setLogLevel } from 'firebase';
-
 var appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000))
 
 class UpdateTime extends React.Component {
     componentDidMount() {
-        // in the end we gon update every minute.
-        // suits the time well, as well as a balanced time period
-        // for snooping and updating location-based stuff
+
         setInterval(
             () => this.setState({ time: (new Date()).getHours() + ":" + (new Date()).getMinutes() + ":" + (new Date()).getSeconds() }),
             1000
@@ -30,9 +25,7 @@ class UpdateTime extends React.Component {
 
 class UpdateCountdown extends React.Component {
     componentDidMount() {
-        // in the end we gon update every minute.
-        // suits the time well, as well as a balanced time period
-        // for snooping and updating location-based stuff
+
         setInterval(
             () => {
                 this.setState({
@@ -60,9 +53,7 @@ type departState = {
 
 class UpdateDepartureTime extends React.Component {
     componentDidMount() {
-        // in the end we gon update every minute.
-        // suits the time well, as well as a balanced time period
-        // for snooping and updating location-based stuff
+
         setInterval(
             () => {
                 // console.log(this.state.counter)
@@ -80,7 +71,7 @@ class UpdateDepartureTime extends React.Component {
         );
     }
     state: departState = {
-        counter: 0,
+        counter: 1,
         timeToLeave: 27,
         timeToLeaveSecs: 59,
         message: "You should leave in 27 minutes and 59 seconds to arrive on time."
@@ -91,7 +82,7 @@ class UpdateDepartureTime extends React.Component {
 }
 
 
-export default function Appointments() {
+export default function Appointments({ navigation }: any) {
     Location.requestPermissionsAsync().then(() => console.log("we have location perms"));
     // DirectionUtil.getTravel().then((x) => console.log(x))
     return (
@@ -101,6 +92,13 @@ export default function Appointments() {
             <UpdateCountdown>countdown</UpdateCountdown>
             {/* <Text style={styles.departure}>potato</Text> */}
             <UpdateDepartureTime>potato</UpdateDepartureTime>
+            <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => { console.log("TAP"); navigation.navigate("VirtualQueue") }}>
+                <Image
+                    source={require("../assets/images/ArrivedButton.png")}
+                    resizeMode="contain"
+                    style={styles.image}>
+                </Image>
+            </TouchableHighlight>
         </View>
     );
 }
@@ -110,6 +108,13 @@ const styles = StyleSheet.create({
     container: {
         alignContent: "center",
         flex: 1
+    },
+    image: {
+        //scale factor: 5.59375
+        marginTop: 50,
+        width: 280,
+        height: 50,
+        alignSelf: "center"
     },
     mapStyle: {
         // position: "absolute",
