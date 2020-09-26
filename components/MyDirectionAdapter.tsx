@@ -10,11 +10,11 @@ export type region = {
 }
 
 
-export const clinicLocation: region = {
+export const clinicLocation = {
     latitude: -37.837231,
     longitude: 144.996277,
-    latitudeDelta: 0.0001,
-    longitudeDelta: 0.0001,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
 }
 
 function callDirectionMatrix(origin: string, destination: string) {
