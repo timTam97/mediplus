@@ -4,7 +4,7 @@ import MapView from 'react-native-maps';
 
 export default function AvaliableClinics({navigation, route}) {
     function movetoDateTime() {
-
+        navigation.navigate('DateTimeSelect')
     }
     let servicetype = null;
     if(route.params) {
@@ -19,12 +19,14 @@ export default function AvaliableClinics({navigation, route}) {
             <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>3 km</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#6681FF"}} activeOpacity={0.8}>
+        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#6681FF"}} activeOpacity={0.8}
+            onPress={movetoDateTime}>
             <Text style={styles.boxTitle}>Melb Family Clinic</Text>
             <Text style={styles.boxAddress}>8 Family Road, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>4 km</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#ACBCFF"}} activeOpacity={0.8}>
+        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#ACBCFF"}} activeOpacity={0.8}
+            onPress={movetoDateTime}>
             <Text style={styles.boxTitle}>Royal Medical Clinic</Text>
             <Text style={styles.boxAddress}>4 Arnold Street, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>4 km</Text>
