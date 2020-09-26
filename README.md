@@ -2,6 +2,8 @@
 
 # Revolutionising your trip to the doctor, one screen at a time.
 
+# ![](https://drive.google.com/file/d/1bC06Pfrj5KPCT6v8p1cY5HQuzOz15Dr6/view?usp=sharing)
+
 ## Getting Started
 Clone the repository and then `npm install`.
 
