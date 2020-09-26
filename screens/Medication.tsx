@@ -22,7 +22,7 @@ export default function Medication() {
               const numItems = Math.floor(Math.random() * 3 + 1);
               for (let j = 0; j < numItems; j++) {
                 items[strTime].push({
-                  name: 'Item for ' + strTime + ' #' + j,
+                  name: 'Medication for ' + strTime,
                   height: Math.max(50, Math.floor(Math.random() * 150))
                 });
               }
