@@ -65,22 +65,6 @@ export default function Book({navigation}){
         </View>
         </ScrollView>
         </SafeAreaView>)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
 
 const styles = StyleSheet.create({
