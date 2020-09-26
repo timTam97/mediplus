@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image } from 'react-native';
 import { Agenda } from 'react-native-calendars';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Card } from 'react-native-paper';
+
 
 const timeToString = (time) => {
     const date = new Date(time);
@@ -33,6 +36,20 @@ export default function Medication() {
         }, 1000);
       }
 
+    const renderItem = (item) => {
+        return(
+            <TouchableOpacity>
+                <Card>
+                    <Card.Content>
+                        <View style={{flexDirection: 'row', justifyContent:"space-between", alignItems: 'center'}}>
+                            <Text>{item.name}</Text>
+                        </View>
+                    </Card.Content>
+                </Card>
+            </TouchableOpacity>
+        )
+    }
+
     return(
         <SafeAreaView style={{flex: 1}}>
             <Text style={styles.title}>Medication</Text>
@@ -41,6 +58,7 @@ export default function Medication() {
                     items={items}
                     loadItemsForMonth={loadItems}
                     selected={'2017-05-16'}
+                    renderItem={renderItem}
                 />
             </View>
             <View style={styles.containerDailyMeds}>
@@ -61,7 +79,7 @@ export const styles = StyleSheet.create({
         fontFamily: "Lato_700Bold",
         color: "rgba(23,34,133,1)",
         fontSize: 35,
-        marginTop: 30,
+        marginTop: 25,
         marginLeft: 34
     },
     container: {
@@ -71,11 +89,11 @@ export const styles = StyleSheet.create({
         fontFamily: "Lato_700Bold",
         color: "rgba(23,34,133,1)",
         fontSize: 17,
-        top: -570,
+        top: -530,
         marginLeft: 34
     },
     dailyMeds: {
-        top: -570,
+        top: -542,
         marginLeft: 34,
         paddingHorizontal: 20,
         position: 'absolute',
