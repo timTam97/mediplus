@@ -22,12 +22,12 @@ export default function Home({ navigation }){
                 <Text style={styles.textStyle}>Upcoming Appointments</Text>
             </View>
             <TouchableOpacity style ={styles.button2}>
-                    <Image
-                        source={require("../assets/appointmentOne.png")}
-                        resizeMode="contain"
-                        style={styles.appointment1}
-                    ></Image>
-                </TouchableOpacity>
+                <Image
+                    source={require("../assets/appointmentOne.png")}
+                    resizeMode="contain"
+                    style={styles.appointment1}
+                ></Image>
+            </TouchableOpacity>
             <View>
                 <TouchableOpacity style ={styles.button1}>
                     <Image
