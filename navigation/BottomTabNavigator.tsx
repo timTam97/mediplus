@@ -15,8 +15,8 @@ import VirtualQueue from "../screens/VirtualQueue"
 
 import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList } from '../types';
 import AvaliableClinics from '../screens/AvaliableClinics';
-import DateTimeSelect from '../screens/DateTimeSelect';
-
+import Calendar from '../screens/Calendar'
+import HealthInsights from '../screens/HealthInsights';
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
@@ -116,8 +116,8 @@ function BookNavigator() {
         options={{ headerTitle: 'Avaliable Clinics' }}
       />
       <BookStack.Screen
-        name="DateTimeSelect"
-        component={DateTimeSelect}
+        name="Calendar"
+        component={Calendar}
         options={({ route }) => ({ title: route.params.place + " Availability" })}
       />
     </BookStack.Navigator>
@@ -146,6 +146,17 @@ function UserNavigator() {
         component={User}
         options={{ headerTitle: 'User' }}
       />
+      <UserStack.Screen
+        name="HealthInsights"
+        component={HealthInsights}
+        options={{ headerTitle: 'Health Insights' }}
+      />
+      <UserStack.Screen
+        name="Appointments"
+        component={User}
+        options={{ headerTitle: 'Appointments' }}
+      />
+
     </UserStack.Navigator>
   );
 }

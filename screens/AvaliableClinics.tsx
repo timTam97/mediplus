@@ -5,7 +5,7 @@ import { TouchableRipple } from 'react-native-paper';
 
 export default function AvaliableClinics({navigation, route}) {
     function movetoDateTime(place: string) {
-        navigation.navigate('DateTimeSelect', {place: place})
+        navigation.navigate('Calendar', {place: place})
     }
     let servicetype = null;
     if(route.params) {
@@ -28,7 +28,6 @@ export default function AvaliableClinics({navigation, route}) {
         <Text style={styles.foundText}>Here is what we found for {servicetype}</Text>
         <TouchableRipple style={styles.boxes} rippleColor="#172285"
             onPress={() => movetoDateTime("South Yarra Clinic")}
-            useForeground={true}
             borderless={true}>
             <View>
                 <Text style={styles.boxTitle}>South Yarra Clinic</Text>

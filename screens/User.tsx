@@ -10,10 +10,7 @@ import CupertinoSearchBarBasic from "../components/CupertinoSearchBarBasic";
 //need to fix the links to other screens!!
 
 export default function User({navigation}){
-    const selectService = (service: Services) => {
-        navigation.navigate('AvaliableClinics', {service: service})
-        
-    }
+
     return(
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -24,14 +21,14 @@ export default function User({navigation}){
     </View>
         
         <View style={styles.imageRow}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("General")}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/6.png")}
             resizeMode="contain"
             style={styles.image}>
             </Image>
           </TouchableHighlight>
-          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("X-Ray")}>
+          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('HealthInsights')}>
           <Image
             source={require("../assets/fram5/4.png")}
             resizeMode="contain"
@@ -41,7 +38,7 @@ export default function User({navigation}){
         </View>
 
         <View style={styles.image2Col}> 
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Medication')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Medication')}>
           <Image
             source={require("../assets/fram5/5.png")}
             resizeMode="contain"
@@ -51,7 +48,7 @@ export default function User({navigation}){
         </View>
 
         <View style={styles.image2Col}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/2.png")}
             resizeMode="contain"
@@ -61,7 +58,7 @@ export default function User({navigation}){
         </View>
 
         <View style={styles.image3Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/1.png")}
             resizeMode="contain"
@@ -71,7 +68,7 @@ export default function User({navigation}){
         </View>
 
         <View style={styles.image3Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/1.png")}
             resizeMode="contain"
@@ -81,7 +78,7 @@ export default function User({navigation}){
         </View>
 
         <View style={styles.image4Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/see.png")}
             resizeMode="contain"
@@ -92,7 +89,7 @@ export default function User({navigation}){
 
 
         <View style={styles.image5Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
           <Image
             source={require("../assets/fram5/3.png")}
             resizeMode="contain"
