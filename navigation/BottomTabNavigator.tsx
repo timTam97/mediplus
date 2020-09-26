@@ -7,7 +7,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 
 import Home from '../screens/Home';
-import Appointments from '../screens/Appointments';
+import Upcoming from '../screens/Upcoming';
 import Book from '../screens/Book';
 import Medication from '../screens/Medication';
 import User from '../screens/User';
@@ -17,6 +17,7 @@ import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList
 import AvaliableClinics from '../screens/AvaliableClinics';
 import Calendar from '../screens/Calendar'
 import HealthInsights from '../screens/HealthInsights';
+import Appointment from '../screens/Appointment';
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
@@ -90,7 +91,7 @@ function AppointmentsNavigator() {
     <AppointmentsStack.Navigator>
       <AppointmentsStack.Screen
         name="Appointments"
-        component={Appointments}
+        component={Appointment}
         options={{ headerTitle: 'Appointments' }}
       />
       <AppointmentsStack.Screen
@@ -152,12 +153,6 @@ function UserNavigator() {
         component={HealthInsights}
         options={{ headerTitle: 'Health Insights' }}
       />
-      <UserStack.Screen
-        name="Appointments"
-        component={User}
-        options={{ headerTitle: 'Appointments' }}
-      />
-
     </UserStack.Navigator>
   );
 }
