@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
         fontFamily: "Lato_700Bold",
         color: "#172285",
         fontSize: 40,
-        height: 40,
         width: 300,
         marginTop: 40,
         marginLeft: 30
