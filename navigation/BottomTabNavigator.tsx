@@ -118,7 +118,7 @@ function BookNavigator() {
       <BookStack.Screen
         name="DateTimeSelect"
         component={DateTimeSelect}
-        options={{ headerTitle: 'Date & Time' }}
+        options={({ route }) => ({ title: route.params.place + " Availability" })}
       />
     </BookStack.Navigator>
   );

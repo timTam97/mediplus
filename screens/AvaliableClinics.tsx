@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 export default function AvaliableClinics({navigation, route}) {
-    function movetoDateTime() {
-        navigation.navigate('DateTimeSelect')
+    function movetoDateTime(place: string) {
+        navigation.navigate('DateTimeSelect', {place: place})
     }
     let servicetype = null;
     if(route.params) {
@@ -12,21 +12,37 @@ export default function AvaliableClinics({navigation, route}) {
     }
     return(
         <View style={styles.container}>
-        <MapView style={styles.mapStyle} />
+        <MapView style={styles.mapStyle} 
+        initialRegion={{
+            latitude: -37.8136,
+            longitude: 144.9631,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1,
+        }}>
+            <Marker coordinate={{latitude: -37.832118, longitude: 144.997755}}
+                pinColor = {"#4A65E3"} // any color
+                title={"South Yarra Clinic"}
+                description={"12 Yarra Street, Melbourne VIC"} />
+            <Marker coordinate={{latitude: -37.832118, longitude: 144.997755}}
+            pinColor = {"#4A65E3"} // any color
+            title={"South Yarra Clinic"}
+            description={"12 Yarra Street, Melbourne VIC"} />
+        </MapView>
         <Text style={styles.foundText}>Here is what we found for {servicetype}</Text>
-        <TouchableOpacity style={styles.boxes} activeOpacity={0.8} onPress={movetoDateTime}>
+        <TouchableOpacity style={styles.boxes} activeOpacity={0.8}
+            onPress={() => movetoDateTime("South Yarra Clinic")}>
             <Text style={styles.boxTitle}>South Yarra Clinic</Text>
             <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>3 km</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{...styles.boxes, backgroundColor: "#6681FF"}} activeOpacity={0.8}
-            onPress={movetoDateTime}>
+            onPress={() => movetoDateTime("Melb Family Clinic")}>
             <Text style={styles.boxTitle}>Melb Family Clinic</Text>
             <Text style={styles.boxAddress}>8 Family Road, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>4 km</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{...styles.boxes, backgroundColor: "#ACBCFF"}} activeOpacity={0.8}
-            onPress={movetoDateTime}>
+            onPress={() => movetoDateTime("Royal Medical Clinic")}>
             <Text style={styles.boxTitle}>Royal Medical Clinic</Text>
             <Text style={styles.boxAddress}>4 Arnold Street, Melbourne VIC</Text>
             <Text style={styles.boxDistance}>4 km</Text>

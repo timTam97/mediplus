@@ -10,6 +10,14 @@ const imageHeight = 150
 export default function Home(){
     return(
         <SafeAreaView style={styles.container}>
+            <View style={styles.greetingContainer}>
+                <Image
+                    source={require("../assets/Greeting.png")}
+                    resizeMode="contain"
+                    style={styles.greeting}
+                ></Image>
+            </View>
+            
             <View style={styles.headerContent1}>
                 <Text style={styles.textStyle}>Upcoming Appointments</Text>
             </View>
@@ -44,38 +52,39 @@ export default function Home(){
                     contentContainerStyle={styles.scrollViewContainerStyle}
                     horizontal
                     showsHorizontalScrollIndicator={false}
+                    snapToStart
                 >
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med1.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med3.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med4.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med5.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med6.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
@@ -90,37 +99,39 @@ const styles = StyleSheet.create({
     headerContent: {
         paddingLeft: 40,
         position: 'absolute',
-        left: 0,
-        top: 5,
+        left: -10,
+        top: 10,
         justifyContent: "center"
       },
       headerContent1: {
         paddingLeft: 40,
         position: 'absolute',
         left: -10,
-        top: 82,
+        top: 115,
         justifyContent: "center"
       },
     textStyle: {
-        fontSize: 20,
+        fontSize: 18,
         color: "#807B7B",
         lineHeight: 20
     },
     image6: {
         width: 129,
         height: 140,
-        marginHorizontal: 25
+        marginHorizontal: 10
       },
     scrollViewContainerStyle: {
       alignContent: 'center',
       justifyContent: 'center',
       alignItems: 'center',
+      marginHorizontal: 0,
       height: 200,
-      paddingHorizontal: 200,
+      paddingLeft: 20,
+      paddingRight: 100
     },
     bottomContainer: {
         position: 'absolute',
-        bottom: -170,
+        bottom: -180,
         justifyContent: 'center',
         width: 500,
         height: 357,
@@ -137,12 +148,12 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",        
-        paddingTop: 10
+        paddingTop: 70
     },
     bookImage: {
         paddingHorizontal: 20,
         position: 'relative',
-        top: 100,
+        top: 98,
         width: '100%',
         height: '100%'
     },
@@ -154,7 +165,7 @@ const styles = StyleSheet.create({
     appointment1: {
         paddingHorizontal: 20,
         position: 'absolute',
-        top: 0,
+        top: 30,
         alignContent: 'center',
         width: 400,
         height: 400,
@@ -171,7 +182,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 0,
         paddingRight: 10,
         position: 'absolute',
-        top: 40,
+        top: 60,
         alignItems: 'center',
         width: 400,
         height: 400,
@@ -182,4 +193,13 @@ const styles = StyleSheet.create({
         top: 0,
         paddingHorizontal: 20
     },
+    greeting: {
+        width: 350,
+        height: 250,
+        top: -70,
+        left: 30
+    },
+    greetingContainer : {
+        height: 0,
+    }
   });
