@@ -105,6 +105,7 @@ export default function User({navigation}){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      top: -20
     },
     image: {
       width: 210,
