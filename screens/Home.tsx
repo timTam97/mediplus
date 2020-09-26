@@ -148,14 +148,21 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",        
-        paddingTop: 70
+        marginTop: 405,
     },
+    // bookImage: {
+    //     paddingHorizontal: 20,
+    //     position: 'relative',
+    //     top: 98,
+    //     width: '100%',
+    //     height: '100%',
+    //     backgroundColor: 'red'
+    // },
     bookImage: {
         paddingHorizontal: 20,
         position: 'relative',
-        top: 98,
-        width: '100%',
-        height: '100%'
+        width: 360,
+        height: 130,
     },
     button1: {
         alignItems: 'center',
