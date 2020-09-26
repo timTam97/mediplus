@@ -1,8 +1,17 @@
 import React, { Component } from "react";
-import { StyleSheet, View, StatusBar, Text, Image, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, View, StatusBar, Text, Image, Dimensions, TouchableHighlight, Alert } from "react-native";
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-function Explore({}) {
+function Explore({ navigation }) {
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Date Saved",
+      "Your selected date has been reserved.",
+      [
+        { text: "Done", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -27,12 +36,15 @@ function Explore({}) {
         resizeMode="contain"
         style={styles.image2}
       ></Image>
-      <Image
-        source={require("../assets/images/saveButtonCalendar.png")}
-        resizeMode="contain"
-        style={styles.image3}
-      ></Image>
-    <Text style={styles.noThanks}>NO THANKS</Text>
+      <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => { navigation.navigate("Book"); createTwoButtonAlert() }}>
+        <Image
+          source={require("../assets/images/saveButtonCalendar.png")}
+          resizeMode="contain"
+          style={styles.image3}
+        ></Image>
+      </TouchableHighlight>
+
+      <Text style={styles.noThanks}>NO THANKS</Text>
     </View>
   );
 }
