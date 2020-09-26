@@ -1,33 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import {StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native'
 
-export default function AvaliableClinics({navigation, route}) {
-    function movetoDateTime() {
-
-    }
-    let servicetype = null;
-    if(route.params) {
-        servicetype = route.params.service
-    }
+export default function DateTimeSelect({navigation, route}){
     return(
         <View style={styles.container}>
-        <MapView style={styles.mapStyle} />
-        <Text style={styles.foundText}>Here is what we found for {servicetype}</Text>
-        <TouchableOpacity style={styles.boxes} activeOpacity={0.8} onPress={movetoDateTime}>
-            <Text style={styles.boxTitle}>South Yarra Clinic</Text>
-            <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>3 km</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#6681FF"}} activeOpacity={0.8}>
-            <Text style={styles.boxTitle}>Melb Family Clinic</Text>
-            <Text style={styles.boxAddress}>8 Family Road, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>4 km</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#ACBCFF"}} activeOpacity={0.8}>
-            <Text style={styles.boxTitle}>Royal Medical Clinic</Text>
-            <Text style={styles.boxAddress}>4 Arnold Street, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>4 km</Text>
-        </TouchableOpacity>
+        <Text>Hello</Text>
         </View>
     )
 }
