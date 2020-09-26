@@ -84,23 +84,23 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     image: {
-      width: 149,
-      height: 149
+      width: 170,
+      height: 150
     },
     image5: {
-      width: 149,
-      height: 149,
+      width: 150,
+      height: 150,
       marginLeft: 23
     },
     imageRow: {
-      height: 149,
+      height: 150,
       flexDirection: "row",
       marginTop: 20,
       marginLeft: 25,
       marginRight: 29
     },
     image2: {
-      width: 149,
+      width: 170,
       height: 149
     },
     image4: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
       marginRight: 29
     },
     image3: {
-      width: 150,
+      width: 170,
       height: 150
     },
     image6: {
@@ -161,24 +161,25 @@ const styles = StyleSheet.create({
         fontSize: 40,
         height: 40,
         width: 300,
-        marginTop: 10,
-        marginLeft: 25
+        marginTop: 40,
+        marginLeft: 30
     },
     appointmentMsg2: {
         fontFamily: "Lato_400Regular",
         color: "#A1A4B2",
         fontSize: 18,
-        height: 18,
         width: 300,
-        marginTop: 10,
-        marginLeft: 25
+        marginTop: 20,
+        marginLeft: 30, 
+        marginBottom: 10
     },
 
     cupertinoSearchBarBasic: {
         height: 35,
-        width: 324,
+        width: 380,
         backgroundColor: "#F2F2F2",
-        paddingLeft: 24
+        paddingLeft: 30, 
+        marginBottom: 18
     }
 
   });
