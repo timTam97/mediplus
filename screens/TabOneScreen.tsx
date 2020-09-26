@@ -5,17 +5,12 @@ import * as Location from 'expo-location';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import * as DirectionUtil from '../components/MyDirectionAdapter'
+import {RootStackParamList} from '../types'
+ 
+export default function TabOneScreen({props}) {
 
-
-
-
-
-
-
-export default function TabOneScreen() {
   console.log("hereeeee");
-  DirectionUtil.getTravel().then((x) => console.log(x))
-
+  // DirectionUtil.getTravel().then((x) => console.log(x))
   React.useEffect(() => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();

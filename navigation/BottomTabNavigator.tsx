@@ -13,6 +13,7 @@ import Medication from '../screens/Medication';
 import User from '../screens/User';
 
 import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList } from '../types';
+import AvaliableClinics from '../screens/AvaliableClinics';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -101,6 +102,11 @@ function BookNavigator() {
         name="Book"
         component={Book}
         options={{ headerTitle: 'Book' }}
+      />
+      <BookStack.Screen
+        name="AvaliableClinics"
+        component={AvaliableClinics}
+        options={{ headerTitle: 'Avaliable Clinics' }}
       />
     </BookStack.Navigator>
   );
