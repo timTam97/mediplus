@@ -10,6 +10,11 @@ const imageHeight = 150
 export default function Home(){
     return(
         <SafeAreaView style={styles.container}>
+            <Image
+                source={require("../assets/Greeting.png")}
+                resizeMode="contain"
+                // style={styles.}
+            ></Image>
             <View style={styles.headerContent1}>
                 <Text style={styles.textStyle}>Upcoming Appointments</Text>
             </View>
@@ -44,38 +49,39 @@ export default function Home(){
                     contentContainerStyle={styles.scrollViewContainerStyle}
                     horizontal
                     showsHorizontalScrollIndicator={false}
+                    snapToStart
                 >
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med1.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/medTwo.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med1.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med1.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
                     </TouchableHighlight>
                     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
                         <Image
-                            source={require("../assets/medications/medOne.png")}
+                            source={require("../assets/med1.png")}
                             resizeMode="contain"
                             style={styles.image6}
                         ></Image>
