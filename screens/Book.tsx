@@ -1,24 +1,31 @@
 import * as React from 'react';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { StackScreenProps } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { BookParamList, Services } from '../types'
 
 
 import { StyleSheet, View, Image, Text, SafeAreaView, ScrollView,TouchableOpacity,TouchableHighlight } from "react-native";
 
 export default function Book({navigation}){
+    const selectService = (service: Services) => {
+        navigation.navigate('AvaliableClinics', {service: service})
+        
+    }
     return(
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
         
         <View style={styles.imageRow}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Home')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("General")}>
           <Image
             source={require("../assets/service/gp.png")}
             resizeMode="contain"
             style={styles.image}>
             </Image>
           </TouchableHighlight>
-          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => alert('link to xray')}>
+          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService("X-Ray")}>
           <Image
             source={require("../assets/service/xray.png")}
             resizeMode="contain"
@@ -29,14 +36,14 @@ export default function Book({navigation}){
         </View>
 
         <View style={styles.image2Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Home')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('OB/GYN')}>
           <Image
             source={require("../assets/service/obgyn.png")}
             resizeMode="contain"
             style={styles.image2}
           ></Image>
             </TouchableHighlight>
-            <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Home')}>
+            <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Cardio')}>
           <Image
             source={require("../assets/service/Cardiology.png")}
             resizeMode="contain"
@@ -46,7 +53,7 @@ export default function Book({navigation}){
 
         </View>
         <View style={styles.image3Row}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('Home')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Pathology')}>
           <Image
             source={require("../assets/service/Pathology.png")}
             resizeMode="contain"
@@ -54,7 +61,7 @@ export default function Book({navigation}){
           ></Image>
         </TouchableHighlight>
 
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.navigate('TabOneScreen')}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => selectService('Orthopedics')}>
           <Image
             source={require("../assets/service/orthopedics.png")}
             resizeMode="contain"
@@ -65,22 +72,6 @@ export default function Book({navigation}){
         </View>
         </ScrollView>
         </SafeAreaView>)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
 
 const styles = StyleSheet.create({
