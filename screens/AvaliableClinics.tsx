@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 import MapView, {Marker} from 'react-native-maps';
+import { TouchableRipple } from 'react-native-paper';
 
 export default function AvaliableClinics({navigation, route}) {
     function movetoDateTime(place: string) {
@@ -23,30 +24,36 @@ export default function AvaliableClinics({navigation, route}) {
                 pinColor = {"#4A65E3"} // any color
                 title={"South Yarra Clinic"}
                 description={"12 Yarra Street, Melbourne VIC"} />
-            <Marker coordinate={{latitude: -37.832118, longitude: 144.997755}}
-            pinColor = {"#4A65E3"} // any color
-            title={"South Yarra Clinic"}
-            description={"12 Yarra Street, Melbourne VIC"} />
-        </MapView>
+        </MapView> 
         <Text style={styles.foundText}>Here is what we found for {servicetype}</Text>
-        <TouchableOpacity style={styles.boxes} activeOpacity={0.8}
-            onPress={() => movetoDateTime("South Yarra Clinic")}>
-            <Text style={styles.boxTitle}>South Yarra Clinic</Text>
-            <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>3 km</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#6681FF"}} activeOpacity={0.8}
-            onPress={() => movetoDateTime("Melb Family Clinic")}>
-            <Text style={styles.boxTitle}>Melb Family Clinic</Text>
-            <Text style={styles.boxAddress}>8 Family Road, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>4 km</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{...styles.boxes, backgroundColor: "#ACBCFF"}} activeOpacity={0.8}
-            onPress={() => movetoDateTime("Royal Medical Clinic")}>
-            <Text style={styles.boxTitle}>Royal Medical Clinic</Text>
-            <Text style={styles.boxAddress}>4 Arnold Street, Melbourne VIC</Text>
-            <Text style={styles.boxDistance}>4 km</Text>
-        </TouchableOpacity>
+        <TouchableRipple style={styles.boxes} rippleColor="#172285"
+            onPress={() => movetoDateTime("South Yarra Clinic")}
+            useForeground={true}
+            borderless={true}>
+            <View>
+                <Text style={styles.boxTitle}>South Yarra Clinic</Text>
+                <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
+                <Text style={styles.boxDistance}>3 km</Text>
+            </View>
+        </TouchableRipple>
+        <TouchableRipple style={{...styles.boxes, backgroundColor: "#6681FF"}} 
+            onPress={() => movetoDateTime("Melb Family Clinic")}
+            rippleColor="#172285" borderless={true}>
+            <View>
+                <Text style={styles.boxTitle}>Melb Family Clinic</Text>
+                <Text style={styles.boxAddress}>8 Family Road, Melbourne VIC</Text>
+                <Text style={styles.boxDistance}>4 km</Text>
+            </View>
+        </TouchableRipple>
+        <TouchableRipple style={{...styles.boxes, backgroundColor: "#ACBCFF"}} 
+            onPress={() => movetoDateTime("Royal Medical Clinic")}
+            rippleColor="#172285" borderless={true}>
+            <View>
+                <Text style={styles.boxTitle}>Royal Medical Clinic</Text>
+                <Text style={styles.boxAddress}>4 Arnold Street, Melbourne VIC</Text>
+                <Text style={styles.boxDistance}>4 km</Text>
+            </View>
+        </TouchableRipple>
         </View>
     )
 }
@@ -92,12 +99,16 @@ const styles = StyleSheet.create({
         fontFamily: "Lato_900Black",
         color: "#FFF",
         fontSize: 25,
-        marginBottom:10
+        marginBottom:10,
+        zIndex: 10, // works on ios
+        elevation: 10, // works on android
     },
     boxAddress: {
         fontFamily: "Lato_400Regular",
         color: "#FFF",
         fontSize: 15,
+        zIndex: 10, // works on ios
+        elevation: 10, // works on android
     },
     boxDistance: {
         fontFamily: "Lato_900Black",
@@ -106,6 +117,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         left: "85%",
         top: "50%",
+        zIndex: 10, // works on ios
+        elevation: 10, // works on android
         transform: [
             {translateY: -1}
         ]
