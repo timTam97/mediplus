@@ -2,7 +2,7 @@
 
 # Revolutionising your trip to the doctor, one screen at a time.
 
-# ![](https://drive.google.com/file/d/1bC06Pfrj5KPCT6v8p1cY5HQuzOz15Dr6/view?usp=sharing)
+# ![](https://github.com/timTam97/mediplus/assets/second shot v2.png)
 
 ## Getting Started
 Clone the repository and then `npm install`.
