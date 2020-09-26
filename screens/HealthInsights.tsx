@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions} from 'react-native'
+import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
 import { TouchableRipple } from 'react-native-paper';
 
 
@@ -9,7 +9,7 @@ export default function HealthInsights(){
             <View style={styles.table}>
                 <View style={styles.row}>
                     <View style={styles.item}>
-                        <Text>1</Text>
+
                     </View>
                     <View style={styles.item}>
                         <Text>2</Text>
@@ -25,8 +25,10 @@ export default function HealthInsights(){
                 </View>
             </View>
             <View style={styles.sleepTrackerContainer}>
-                
-
+                <Image style={{height:"100%", width:"100%", borderRadius: 15}}
+                source={require("../assets/images/combinedCharts.png")}
+                resizeMode="contain">
+                    </Image>
             </View>
         </View>
     )
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         backgroundColor: "#FFF",
         width: "90%",
-        marginBottom: 5,
+        marginBottom: 300,
         flexGrow: 1,
         shadowColor: '#e0e0ec',
         shadowOffset: { width: 1, height: 0 },
