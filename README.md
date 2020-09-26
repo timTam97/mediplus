@@ -2,8 +2,6 @@
 
 # Revolutionising your trip to the doctor, one screen at a time.
 
-# ![](https://github.com/timTam97/mediplus/assets/second shot v2.png)
-
 ## Getting Started
 Clone the repository and then `npm install`.
 
