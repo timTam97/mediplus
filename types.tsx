@@ -4,14 +4,29 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Home: undefined;
+  Appointments: undefined;
+  Book: undefined;
+  Medication: undefined;
+  User: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
-};
+export type HomeParamList = {
+  Home: undefined;
+}
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
-};
+export type AppointmentsParamList = {
+  Appointments: undefined;
+}
+
+export type BookParamList = {
+  Book: undefined;
+}
+
+export type MedicationParamList = {
+  Medication: undefined;
+}
+
+export type UserParamList = {
+  User: undefined;
+}
