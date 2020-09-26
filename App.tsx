@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
+
 import {
   useFonts,
   Lato_100Thin,
