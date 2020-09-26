@@ -30,7 +30,7 @@ export type BookParamList = {
   AvaliableClinics: {
     service: Services
   },
-  DateTimeSelect: undefined,
+  Calendar: undefined,
 }
 
 export type MedicationParamList = {
@@ -39,4 +39,6 @@ export type MedicationParamList = {
 
 export type UserParamList = {
   User: undefined;
+  HealthInsights: undefined;
+  Appointments: undefined;
 }
