@@ -83,7 +83,7 @@ export default function Explore() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,1)"
+    backgroundColor: '#e6e6e6'
   },
   headerSection: {
     top: 22,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     left: 0,
     height: 740,
     position: "absolute",
-    right: 0
+    right: 0,
   },
   exploreTabs: {
     top: 88,
@@ -347,6 +347,7 @@ const styles = StyleSheet.create({
   },
   headerSectionStackStack: {
     height: 740,
-    marginRight: -86
+    marginRight: -86,
+    marginLeft: 36
   }
 });
