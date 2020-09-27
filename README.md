@@ -5,4 +5,4 @@
 ## Getting Started
 Clone the repository and then `npm install`.
 
-`npm start` starts the application backend using Expo and React Native.
+`expo start` starts the application backend using Expo and React Native.
