@@ -15,9 +15,6 @@ export default function User({navigation}){
         <ScrollView style={styles.scrollView}>
         <Text style={styles.appointmentMsg}>Afsar Sohan</Text>
         <Text style={styles.appointmentMsg2}>DOB: 1998   ID:M00273</Text>
-        <View style={styles.container}>
-     
-    </View>
         
         <View style={styles.imageRow}>
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'>
@@ -105,7 +102,8 @@ export default function User({navigation}){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      top: -20
+      top: -20,
+      // backgroundColor: 'red'
     },
     image: {
       width: 210,
@@ -159,19 +157,19 @@ const styles = StyleSheet.create({
       width: 300,
       height: 250,
       marginLeft: -95,
-      marginTop: -210
+      marginTop: -220
     },
     image6: {
         width: 300,
         height: 250,
         marginLeft: -95,
-        marginTop: -270
+        marginTop: -282
     },
     image7: {
         width: 345,
         height: 250,
         marginLeft: -105,
-        bottom: -18
+        bottom: 7
     },
     image8: {
         width: 345,
@@ -197,7 +195,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginTop: -7,
         marginLeft: 10
-      
       },
     cupertinoFooter2: {
       height: 49,
