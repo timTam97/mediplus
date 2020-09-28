@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, Text, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity, TouchableHighlight } from 'react-native';
-
+import {getTravelTime} from "../components/MyDirectionAdapter"
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 const cardPadding = 30
 const totalPadding = 26 * 3 // left-side, in-between, right-side
@@ -8,6 +8,8 @@ const imageWidth = (screenWidth - totalPadding) / 2
 const imageHeight = 150
 
 export default function Home({ navigation }){
+    console.log("on home");
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.greetingContainer}>

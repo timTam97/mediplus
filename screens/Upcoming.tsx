@@ -95,7 +95,6 @@ class UpdateDepartureTime extends React.Component {
 
 
 export default function Appointments({ navigation }: any) {
-    Location.requestPermissionsAsync().then(() => console.log("we have location perms"));
     // DirectionUtil.getTravel().then((x) => console.log(x))
     return (
         <View style={styles.container}>

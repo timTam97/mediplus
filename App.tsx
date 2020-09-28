@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import {getTravelTime} from "./components/MyDirectionAdapter"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Image } from 'react-native';
-
 import * as Location from 'expo-location';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -23,6 +23,12 @@ import {
 } from '@expo-google-fonts/lato';
 
 export default function App() {
+  let ok = "potato";
+  Location.requestPermissionsAsync().then(() => console.log("we have location perms. from app."));
+  getTravelTime()
+    .then((data) => data.json())
+    .then((data) => {console.log(data); return data})
+    .then((data) => console.log(data.rows[0].elements[0].distance.text))
   let [fontsLoaded] = useFonts({
     Lato_100Thin,
     Lato_100Thin_Italic,
