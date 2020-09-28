@@ -1,6 +1,7 @@
 // One stop shop for location / mapview things
 
 import * as Location from 'expo-location';
+import { GOOGLE_API_KEY } from '../creds';
 
 export type region = {
     latitude: Number,
@@ -51,7 +52,7 @@ export async function getTravelTime(): Promise<Response> {
     return fetch(
         "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
         + srcAddress +
-        "&destinations=" + destAddress + "&key=AIzaSyCVsi3lXKr6n99Y5TACqwQ8MWU2nUPjMlw")
+        "&destinations=" + destAddress + "&key=" + GOOGLE_API_KEY)
     // .then(response => response.json())
     // .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
     // .catch((e) => "Unable to retrieve data from google services: " + e)
