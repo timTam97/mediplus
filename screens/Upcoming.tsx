@@ -2,10 +2,11 @@ import * as React from 'react';
 import { StyleSheet, TouchableHighlight, Image } from 'react-native';
 import MapView from 'react-native-maps';
 import * as DirectionUtil from '../components/MyDirectionAdapter'
-import * as Location from 'expo-location';
 import { Text, View } from 'react-native';
+
 var appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000))
+const globalAny: any = global;
 
 class UpdateTime extends React.Component {
     // not time anymore, more of a countdown
@@ -24,7 +25,7 @@ class UpdateTime extends React.Component {
         );
     }
     state = {
-        mins: 48,
+        mins: Math.round((appointmentTime - Date.now()) / ((60 * 60 * 1000))),
         secs: 0,
         time: ""
     }
@@ -47,9 +48,8 @@ class UpdateCountdown extends React.Component {
         );
     }
     state = {
-        mins: 48,
+        mins: Math.round((appointmentTime - Date.now()) / ((60 * 60 * 1000))),
         counter: 0,
-        // message: "You have " + Math.ceil(Math.ceil(Math.abs(Date.now() - appointmentTime)) / (1000 * 60 * 60)) + " minutes until your appointment at South Yarra Clinic"
         message: ""
     }
     render() {
@@ -57,36 +57,46 @@ class UpdateCountdown extends React.Component {
     }
 }
 
-type departState = {
-    counter: number,
-    timeToLeave: number,
-    timeToLeaveSecs: number,
-    message: string
-}
-
 class UpdateDepartureTime extends React.Component {
     componentDidMount() {
-        setInterval(
+        this.state.intervalID = setInterval(
             () => {
                 // console.log(this.state.counter)
-                let newCounter = this.state.counter + 1
-                let newTime: number = (this.state.counter % 60 == 0) ? this.state.timeToLeave - 1 : this.state.timeToLeave;
+                if (typeof globalAny.distanceText === "undefined" || typeof globalAny.timeVal === "undefined") {
+                    this.setState(() => ({
+                        message: "Waiting on location data..."
+                    }))
+                    return;
+                }
+                else if (!this.state.read) {
+                    this.setState(() => ({
+                        read: true,
+                        timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
+                        timeToLeaveSecs: globalAny.timeVal % 60,
+                        message: "Waiting on location data..."
+                    }))
+                }
+                let newMins = (this.state.timeToLeaveSecs == 59) ? this.state.timeToLeaveMins - 1 : this.state.timeToLeaveMins;
                 let newSecs = (this.state.timeToLeaveSecs == 0) ? 59 : this.state.timeToLeaveSecs - 1
-                this.setState(previousState => ({
-                    counter: newCounter,
-                    timeToLeave: newTime,
+                this.setState(() => ({
+                    timeToLeaveMins: newMins,
                     timeToLeaveSecs: newSecs,
-                    message: "You should leave in " + newTime + " minutes and " + newSecs + " seconds to arrive on time."
+                    message: "You are " + globalAny.distanceText + " away from the clinic."
+                        + " You should leave in " + newMins + " minutes and " + newSecs + " seconds to arrive on time."
                 }))
             },
             1000
         );
     }
-    state: departState = {
-        counter: 1,
-        timeToLeave: 27,
-        timeToLeaveSecs: 59,
-        message: "You should leave in 27 minutes and 59 seconds to arrive on time."
+    componentWillUnmount() {
+        clearInterval(this.state.intervalID)
+    }
+    state = {
+        intervalID: undefined,
+        read: false,
+        timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
+        timeToLeaveSecs: globalAny.timeVal % 60,
+        message: "Waiting on location data..."
     }
     render() {
         return <Text style={styles.departure}>{this.state.message}</Text>;
@@ -95,7 +105,6 @@ class UpdateDepartureTime extends React.Component {
 
 
 export default function Appointments({ navigation }: any) {
-    // DirectionUtil.getTravel().then((x) => console.log(x))
     return (
         <View style={styles.container}>
             <MapView style={styles.mapStyle} initialRegion={DirectionUtil.clinicLocation}></MapView>

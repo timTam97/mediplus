@@ -1,16 +1,27 @@
 import React from 'react';
 import { SafeAreaView, View, Text, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity, TouchableHighlight } from 'react-native';
-import {getTravelTime} from "../components/MyDirectionAdapter"
+import { getTravelTime } from "../components/MyDirectionAdapter"
+
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 const cardPadding = 30
 const totalPadding = 26 * 3 // left-side, in-between, right-side
 const imageWidth = (screenWidth - totalPadding) / 2
 const imageHeight = 150
+const globalAny: any = global;
 
-export default function Home({ navigation }){
-    console.log("on home");
-
-    return(
+export default function Home({ navigation }) {
+    getTravelTime()
+        .then((data) => data.json())
+        .then((data) => {
+            console.log(data.rows[0].elements[0].distance.text);
+            console.log(data.rows[0].elements[0].duration.text);
+            return data;
+        })
+        .then((data) => {
+            globalAny.distanceText = data.rows[0].elements[0].distance.text;
+            globalAny.timeVal = data.rows[0].elements[0].duration.value;
+        })
+    return (
         <SafeAreaView style={styles.container}>
             <View style={styles.greetingContainer}>
                 <Image
@@ -19,11 +30,11 @@ export default function Home({ navigation }){
                     style={styles.greeting}
                 ></Image>
             </View>
-            
+
             <View style={styles.headerContent1}>
                 <Text style={styles.textStyle}>Upcoming Appointments</Text>
             </View>
-            <TouchableOpacity style ={styles.button2}>
+            <TouchableOpacity style={styles.button2}>
                 <Image
                     source={require("../assets/appointmentOne.png")}
                     resizeMode="contain"
@@ -31,7 +42,7 @@ export default function Home({ navigation }){
                 ></Image>
             </TouchableOpacity>
             <View>
-                <TouchableOpacity style ={styles.button1}>
+                <TouchableOpacity style={styles.button1}>
                     <Image
                         source={require("../assets/appointmenttoo.png")}
                         resizeMode="contain"
@@ -39,13 +50,13 @@ export default function Home({ navigation }){
                     ></Image>
                 </TouchableOpacity>
             </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Book', {})}>
-                    <Image
-                        source={require("../assets/bookAppointment.png")}
-                        resizeMode="contain"
-                        style={styles.bookImage}
-                    ></Image>
-                </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Book', {})}>
+                <Image
+                    source={require("../assets/bookAppointment.png")}
+                    resizeMode="contain"
+                    style={styles.bookImage}
+                ></Image>
+            </TouchableOpacity>
             <SafeAreaView style={styles.bottomContainer}>
                 <View style={styles.headerContent}>
                     <Text style={styles.textStyle}>Your Medications</Text>
@@ -93,7 +104,7 @@ export default function Home({ navigation }){
                     </TouchableHighlight>
                 </ScrollView>
             </SafeAreaView>
-        </SafeAreaView>     
+        </SafeAreaView>
     )
 }
 
@@ -104,14 +115,14 @@ const styles = StyleSheet.create({
         left: -10,
         top: 10,
         justifyContent: "center"
-      },
-      headerContent1: {
+    },
+    headerContent1: {
         paddingLeft: 40,
         position: 'absolute',
         left: -10,
         top: 115,
         justifyContent: "center"
-      },
+    },
     textStyle: {
         fontSize: 18,
         color: "#807B7B",
@@ -121,15 +132,15 @@ const styles = StyleSheet.create({
         width: 129,
         height: 140,
         marginHorizontal: 10
-      },
+    },
     scrollViewContainerStyle: {
-      alignContent: 'center',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginHorizontal: 0,
-      height: 200,
-      paddingLeft: 20,
-      paddingRight: 100
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginHorizontal: 0,
+        height: 200,
+        paddingLeft: 20,
+        paddingRight: 100
     },
     bottomContainer: {
         position: 'absolute',
@@ -149,7 +160,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     button: {
-        alignItems: "center",        
+        alignItems: "center",
         marginTop: 405,
     },
     bookImage: {
@@ -201,7 +212,7 @@ const styles = StyleSheet.create({
         top: -70,
         left: 30
     },
-    greetingContainer : {
+    greetingContainer: {
         height: 0,
     }
-  });
+});

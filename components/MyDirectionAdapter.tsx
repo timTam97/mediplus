@@ -17,28 +17,6 @@ export const clinicLocation = {
     longitudeDelta: 0.01,
 }
 
-function callDirectionMatrix(origin: string, destination: string) {
-    console.log("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
-        + origin +
-        "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
-    return fetch(
-        "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
-        + origin +
-        "&destinations=" + destination + "&key=AIzaSyBV9SwsndxAtlO5aKpUcetk3kTVQlX7pcA")
-        .then(x => { console.log(x); return x })
-        .then(response => response.json())
-        .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
-        .catch((e) => "Unable to retrieve data from google services: " + e)
-}
-
-
-function recievingData(e: any) {
-    if (e.status == "ok") {
-        return e.rows[0].elements[0].duration.value;
-    }
-    return null;
-}
-
 async function getLocGeocoded(): Promise<Location.LocationGeocodedAddress[]> {
     let loc = null;
     try {
@@ -54,38 +32,29 @@ export async function getTravelTime(): Promise<Response> {
     let source = await getLocGeocoded().then(x => x[0])
     // we know it is hard coded
     let dest = {
-            "city": "South Yarra",
-            "country": "Australia",
-            "district": null,
-            "isoCountryCode": "AU",
-            "name": "670 Chapel",
-            "postalCode": "3141",
-            "region": "VIC",
-            "street": "Malcolm Street",
-            "subregion": "Melbourne",
-            "timezone": "Australia/Melbourne",
-        }
+        "city": "South Yarra",
+        "country": "Australia",
+        "district": null,
+        "isoCountryCode": "AU",
+        "name": "670 Chapel",
+        "postalCode": "3141",
+        "region": "VIC",
+        "street": "Malcolm Street",
+        "subregion": "Melbourne",
+        "timezone": "Australia/Melbourne",
+    }
     let srcAddress = source.name + " " + source.city + " " + source.region + " " + source.postalCode;
     let destAddress = dest.name + " " + dest.city + " " + dest.region + " " + dest.postalCode;
     srcAddress = srcAddress.replace(/ /g, "+");
     destAddress = destAddress.replace(/ /g, "+");
-    
+    console.log("about to fetch.");
     return fetch(
         "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="
         + srcAddress +
-        "&destinations=" + destAddress + "&key=AIzaSyDuIeSH7gk--7OqjwZvYBU_v6d7gOUdx7M")
-        // .then(response => response.json())
-        // .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
-        // .catch((e) => "Unable to retrieve data from google services: " + e)
-}
-
-async function getTravelTimeInternal(source: Location.LocationGeocodedAddress, dest: Location.LocationGeocodedAddress) {
-    let srcAddress = source.name + " " + source.city + " " + source.region + " " + source.postalCode;
-    let destAddress = dest.name + " " + dest.city + " " + dest.region + " " + dest.postalCode;
-    srcAddress = srcAddress.replace(/ /g, "+");
-    destAddress = destAddress.replace(/ /g, "+");
-
-    return callDirectionMatrix(srcAddress, destAddress);
+        "&destinations=" + destAddress + "&key=AIzaSyCVsi3lXKr6n99Y5TACqwQ8MWU2nUPjMlw")
+    // .then(response => response.json())
+    // .then(data => console.log(data.rows[0].elements[0].distance.text + ", " + data.rows[0].elements[0].duration.text))
+    // .catch((e) => "Unable to retrieve data from google services: " + e)
 }
 
 
