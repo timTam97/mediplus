@@ -2,6 +2,7 @@
 
 import * as Location from 'expo-location';
 import { GOOGLE_API_KEY } from '../creds';
+import { Region } from 'react-native-maps';
 
 export type region = {
     latitude: Number,
@@ -11,7 +12,7 @@ export type region = {
 }
 
 
-export const clinicLocation = {
+export const clinicLocation: Region = {
     latitude: -37.837231,
     longitude: 144.996277,
     latitudeDelta: 0.01,

@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, TouchableHighlight, Image } from 'react-native';
-import MapView from 'react-native-maps';
-import * as DirectionUtil from '../components/MyDirectionAdapter'
+import MapView, { LatLng } from 'react-native-maps';
+import * as DirectionUtil from '../components/MyDirectionAdapter';
+import * as Location from 'expo-location';
 import { Text, View } from 'react-native';
+import * as Linking from 'expo-linking';
+import { Marker } from 'react-native-svg';
+import { LocationGeocodedLocation } from 'expo-location';
 
 var appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000))
@@ -41,7 +45,8 @@ class UpdateCountdown extends React.Component {
                 this.setState({
                     mins: (this.state.counter % 60 === 0) ? this.state.mins - 1 : this.state.mins,
                     counter: this.state.counter + 1,
-                    message: "You have " + this.state.mins + " minutes until your\nappointment at South Yarra Clinic."
+                    message: "You have " + this.state.mins + " minutes until your\nappointment at South Yarra Clinic.\n"
+                        + "Tap the map to get directions to the clinic."
                 }); /*console.log(appointmentTime - Date.now() / (1000 * 60))*/
             },
             1000
@@ -103,11 +108,30 @@ class UpdateDepartureTime extends React.Component {
     }
 }
 
+let dest = {
+    "city": "South Yarra",
+    "country": "Australia",
+    "district": null,
+    "isoCountryCode": "AU",
+    "name": "670 Chapel",
+    "postalCode": "3141",
+    "region": "VIC",
+    "street": "Malcolm Street",
+    "subregion": "Melbourne",
+    "timezone": "Australia/Melbourne",
+}
+let destAddress = dest.name + " " + dest.city + " " + dest.region + " " + dest.postalCode.replace(/ /g, "+");
 
 export default function Appointments({ navigation }: any) {
+    // let a: LocationGeocodedLocation;
+    // Location.geocodeAsync("South Yarra Clinic").then((x) => a = x[0])
     return (
         <View style={styles.container}>
-            <MapView style={styles.mapStyle} initialRegion={DirectionUtil.clinicLocation}></MapView>
+            <MapView
+                style={styles.mapStyle}
+                initialRegion={DirectionUtil.clinicLocation}
+                onPress={(() => Linking.openURL("comgooglemaps://?daddr=" + destAddress + "&directionsmode=driving"))}>
+            </MapView>
             <UpdateTime></UpdateTime>
             <UpdateCountdown></UpdateCountdown>
             {/* <Text style={styles.departure}>potato</Text> */}
