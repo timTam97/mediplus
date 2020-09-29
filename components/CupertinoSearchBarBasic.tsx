@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import React, {Component} from 'react';
+import {StyleSheet, View, TextInput} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function CupertinoSearchBarBasic(props) {
   return (
@@ -15,34 +15,34 @@ function CupertinoSearchBarBasic(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#CECED2",
-    padding: 8
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#CECED2',
+    padding: 8,
   },
   inputBox: {
     flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#E5E5E5",
+    flexDirection: 'row',
+    backgroundColor: '#E5E5E5',
     borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   inputLeftIcon: {
-    color: "#000",
+    color: '#000',
     fontSize: 20,
-    alignSelf: "center",
+    alignSelf: 'center',
     paddingLeft: 5,
-    paddingRight: 5
+    paddingRight: 5,
   },
   inputStyle: {
     height: 32,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     fontSize: 15,
     lineHeight: 15,
-    color: "#000",
-    flex: 1
-  }
+    color: '#000',
+    flex: 1,
+  },
 });
 
 export default CupertinoSearchBarBasic;

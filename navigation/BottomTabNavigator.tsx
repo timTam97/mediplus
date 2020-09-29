@@ -1,6 +1,6 @@
-import { Ionicons, FontAwesome, MaterialIcons, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {Ionicons, FontAwesome, MaterialIcons, MaterialCommunityIcons, AntDesign} from '@expo/vector-icons';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import * as React from 'react';
 
 import Colors from '../constants/Colors';
@@ -11,11 +11,11 @@ import Upcoming from '../screens/Upcoming';
 import Book from '../screens/Book';
 import Medication from '../screens/Medication';
 import User from '../screens/User';
-import VirtualQueue from "../screens/VirtualQueue"
+import VirtualQueue from '../screens/VirtualQueue';
 
-import { BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList } from '../types';
+import {BottomTabParamList, HomeParamList, AppointmentsParamList, BookParamList, MedicationParamList, UserParamList} from '../types';
 import AvaliableClinics from '../screens/AvaliableClinics';
-import Calendar from '../screens/Calendar'
+import Calendar from '../screens/Calendar';
 import HealthInsights from '../screens/HealthInsights';
 import Appointment from '../screens/Appointment';
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -26,41 +26,41 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{activeTintColor: Colors[colorScheme].tint}}>
       <BottomTab.Screen
         name="Home"
         component={HomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <Ionicons name="ios-home" color={color} size={25} style={{ marginBottom: -3 }} />,
+          tabBarIcon: ({color}) => <Ionicons name="ios-home" color={color} size={25} style={{marginBottom: -3}} />,
         }}
       />
       <BottomTab.Screen
         name="Appointments"
         component={AppointmentsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <FontAwesome name="heartbeat" color={color} size={25} style={{ marginBottom: -3 }} />,
+          tabBarIcon: ({color}) => <FontAwesome name="heartbeat" color={color} size={25} style={{marginBottom: -3}} />,
         }}
       />
       <BottomTab.Screen
         name="Book"
         component={BookNavigator}
         options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="add-circle" color={color} size={25} style={{ marginBottom: -3 }} />,
+          tabBarIcon: ({color}) => <MaterialIcons name="add-circle" color={color} size={25} style={{marginBottom: -3}} />,
         }}
       />
       <BottomTab.Screen
         name="Medication"
         component={MedicationNavigator}
         options={{
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="pill" color={color} size={25} style={{ marginBottom: -3 }} />,
+          tabBarIcon: ({color}) => <MaterialCommunityIcons name="pill" color={color} size={25} style={{marginBottom: -3}} />,
         }}
       />
-      
+
       <BottomTab.Screen
         name="User"
         component={UserNavigator}
         options={{
-          tabBarIcon: ({ color }) => <AntDesign name="user" color={color} size={25} style={{ marginBottom: -3 }} />,
+          tabBarIcon: ({color}) => <AntDesign name="user" color={color} size={25} style={{marginBottom: -3}} />,
         }}
       />
     </BottomTab.Navigator>
@@ -79,7 +79,7 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={Home}
-        options={{ headerTitle: 'Home' }}
+        options={{headerTitle: 'Home'}}
       />
     </HomeStack.Navigator>
   );
@@ -92,12 +92,12 @@ function AppointmentsNavigator() {
       <AppointmentsStack.Screen
         name="Appointments"
         component={Appointment}
-        options={{ headerTitle: 'Appointments' }}
+        options={{headerTitle: 'Appointments'}}
       />
       <AppointmentsStack.Screen
         name="Upcoming"
         component={Upcoming}
-        options={{ headerTitle: 'Upcoming' }}
+        options={{headerTitle: 'Upcoming'}}
       />
       <AppointmentsStack.Screen
         name="VirtualQueue"
@@ -115,17 +115,17 @@ function BookNavigator() {
       <BookStack.Screen
         name="Book"
         component={Book}
-        options={{ headerTitle: 'Book' }}
+        options={{headerTitle: 'Book'}}
       />
       <BookStack.Screen
         name="AvaliableClinics"
         component={AvaliableClinics}
-        options={{ headerTitle: 'Avaliable Clinics' }}
+        options={{headerTitle: 'Avaliable Clinics'}}
       />
       <BookStack.Screen
         name="Calendar"
         component={Calendar}
-        options={({ route }) => ({ title: route.params.place + " Availability" })}
+        options={({route}) => ({title: route.params.place + ' Availability'})}
       />
     </BookStack.Navigator>
   );
@@ -138,7 +138,7 @@ function MedicationNavigator() {
       <MedicationStack.Screen
         name="Medication"
         component={Medication}
-        options={{ headerTitle: 'Medication' }}
+        options={{headerTitle: 'Medication'}}
       />
     </MedicationStack.Navigator>
   );
@@ -151,25 +151,25 @@ function UserNavigator() {
       <UserStack.Screen
         name="User"
         component={User}
-        options={{ headerTitle: 'User' }}
+        options={{headerTitle: 'User'}}
       />
       <UserStack.Screen
         name="HealthInsights"
         component={HealthInsights}
-        options={{ headerTitle: 'Health Insights' }}
+        options={{headerTitle: 'Health Insights'}}
       />
     </UserStack.Navigator>
   );
 }
 
 const CalendarStack = createStackNavigator<UserParamList>();
-  function CalendarNavigator() {
+function CalendarNavigator() {
   return (
     <CalendarStack.Navigator>
       <CalendarStack.Screen
         name="User"
         component={User}
-        options={{ headerTitle: 'Calendar' }}
+        options={{headerTitle: 'Calendar'}}
       />
     </CalendarStack.Navigator>
   );

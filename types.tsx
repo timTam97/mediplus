@@ -10,7 +10,7 @@ export type BottomTabParamList = {
   Medication: undefined;
   User: undefined;
 };
-export type Services = "General" | "X-Ray" | "OB/GYN" | "Cardio" | "Pathology" | "Orthopedics"
+export type Services = 'General' | 'X-Ray' | 'OB/GYN' | 'Cardio' | 'Pathology' | 'Orthopedics'
 
 export type AvaliableClinicsParamList = {
   type: string;

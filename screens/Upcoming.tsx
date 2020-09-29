@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, TouchableHighlight, Image } from 'react-native';
-import MapView, { LatLng } from 'react-native-maps';
+import {StyleSheet, TouchableHighlight, Image} from 'react-native';
+import MapView, {LatLng} from 'react-native-maps';
 import * as DirectionUtil from '../components/MyDirectionAdapter';
 import * as Location from 'expo-location';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 import * as Linking from 'expo-linking';
-import { Marker } from 'react-native-svg';
-import { LocationGeocodedLocation } from 'expo-location';
+import {Marker} from 'react-native-svg';
+import {LocationGeocodedLocation} from 'expo-location';
 
 let appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000));
@@ -16,16 +16,16 @@ class UpdateTime extends React.Component {
   // not time anymore, more of a countdown
   componentDidMount() {
     this.state.intervalID = window.setInterval(
-      () => {
-        const newMins = (this.state.secs === 0) ? this.state.mins - 1 : this.state.mins;
-        const newSecs = (this.state.secs !== 0) ? this.state.secs - 1 : 59;
-        this.setState({
-          mins: newMins,
-          secs: newSecs,
-          time: newMins + ':' + newSecs,
-        });
-      },
-      1000,
+        () => {
+          const newMins = (this.state.secs === 0) ? this.state.mins - 1 : this.state.mins;
+          const newSecs = (this.state.secs !== 0) ? this.state.secs - 1 : 59;
+          this.setState({
+            mins: newMins,
+            secs: newSecs,
+            time: newMins + ':' + newSecs,
+          });
+        },
+        1000,
     );
   }
   componentWillUnmount() {
@@ -45,15 +45,15 @@ class UpdateTime extends React.Component {
 class UpdateCountdown extends React.Component {
   componentDidMount() {
     this.state.intervalID = window.setInterval(
-      () => {
-        this.setState({
-          mins: (this.state.counter % 60 === 0) ? this.state.mins - 1 : this.state.mins,
-          counter: this.state.counter + 1,
-          message: 'You have ' + this.state.mins + ' minutes until your\nappointment at South Yarra Clinic.\n' +
+        () => {
+          this.setState({
+            mins: (this.state.counter % 60 === 0) ? this.state.mins - 1 : this.state.mins,
+            counter: this.state.counter + 1,
+            message: 'You have ' + this.state.mins + ' minutes until your\nappointment at South Yarra Clinic.\n' +
             'Tap the map to get directions to the clinic.',
-        }); /* console.log(appointmentTime - Date.now() / (1000 * 60))*/
-      },
-      1000,
+          }); /* console.log(appointmentTime - Date.now() / (1000 * 60))*/
+        },
+        1000,
     );
   }
   componentWillUnmount() {
@@ -74,31 +74,31 @@ class UpdateCountdown extends React.Component {
 class UpdateDepartureTime extends React.Component {
   componentDidMount() {
     this.state.intervalID = window.setInterval(
-      () => {
+        () => {
         // console.log(this.state.counter)
-        if (typeof globalAny.distanceText === 'undefined' || typeof globalAny.timeVal === 'undefined') {
+          if (typeof globalAny.distanceText === 'undefined' || typeof globalAny.timeVal === 'undefined') {
+            this.setState(() => ({
+              message: 'Waiting on location data...',
+            }));
+            return;
+          } else if (!this.state.read) {
+            this.setState(() => ({
+              read: true,
+              timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
+              timeToLeaveSecs: globalAny.timeVal % 60,
+              message: 'Waiting on location data...',
+            }));
+          }
+          const newMins = (this.state.timeToLeaveSecs == 59) ? this.state.timeToLeaveMins - 1 : this.state.timeToLeaveMins;
+          const newSecs = (this.state.timeToLeaveSecs == 0) ? 59 : this.state.timeToLeaveSecs - 1;
           this.setState(() => ({
-            message: 'Waiting on location data...',
-          }));
-          return;
-        } else if (!this.state.read) {
-          this.setState(() => ({
-            read: true,
-            timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
-            timeToLeaveSecs: globalAny.timeVal % 60,
-            message: 'Waiting on location data...',
-          }));
-        }
-        const newMins = (this.state.timeToLeaveSecs == 59) ? this.state.timeToLeaveMins - 1 : this.state.timeToLeaveMins;
-        const newSecs = (this.state.timeToLeaveSecs == 0) ? 59 : this.state.timeToLeaveSecs - 1;
-        this.setState(() => ({
-          timeToLeaveMins: newMins,
-          timeToLeaveSecs: newSecs,
-          message: 'You are ' + globalAny.distanceText + ' away from the clinic.' +
+            timeToLeaveMins: newMins,
+            timeToLeaveSecs: newSecs,
+            message: 'You are ' + globalAny.distanceText + ' away from the clinic.' +
             ' You should leave in ' + newMins + ' minutes and ' + newSecs + ' seconds to arrive on time.',
-        }));
-      },
-      1000,
+          }));
+        },
+        1000,
     );
   }
   componentWillUnmount() {
@@ -130,7 +130,7 @@ const dest = {
 };
 const destAddress = dest.name + ' ' + dest.city + ' ' + dest.region + ' ' + dest.postalCode.replace(/ /g, '+');
 
-export default function Appointments({ navigation }: any) {
+export default function Appointments({navigation}: any) {
   // let a: LocationGeocodedLocation;
   // Location.geocodeAsync("South Yarra Clinic").then((x) => a = x[0])
   return (

@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
+import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import * as Location from 'expo-location';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -22,8 +22,8 @@ import {
 
 
 export default function App() {
-  Location.requestPermissionsAsync().then(() => console.log("we have location permissions"));
-  let [fontsLoaded] = useFonts({
+  Location.requestPermissionsAsync().then(() => console.log('we have location permissions'));
+  const [fontsLoaded] = useFonts({
     Lato_100Thin,
     Lato_100Thin_Italic,
     Lato_300Light,
@@ -41,7 +41,6 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   } else {
-
     return (
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
