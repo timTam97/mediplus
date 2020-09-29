@@ -60,6 +60,11 @@
     "@babel/core": "~7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.21.2",
     "jest-expo": "~39.0.0",
     "typescript": "~3.9.5"
   },
