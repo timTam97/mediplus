@@ -16,6 +16,7 @@
     "@expo/vector-icons": "^10.0.0",
     "@googlemaps/google-maps-services-js": "^3.1.6",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/netinfo": "^5.9.7",
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/material-bottom-tabs": "^5.2.17",
     "@react-navigation/native": "^5.7.3",
@@ -23,9 +24,12 @@
     "@types/react-native-calendars": "^1.20.10",
     "@types/react-native-material-ui": "^1.32.2",
     "@types/react-native-snap-carousel": "^3.8.2",
+    "aws-amplify": "^3.3.3",
+    "aws-amplify-react-native": "^4.2.7",
     "expo": "~39.0.2",
     "expo-asset": "~8.2.0",
     "expo-constants": "~9.2.0",
+    "expo-file-system": "~9.2.0",
     "expo-font": "~8.3.0",
     "expo-linking": "^1.0.1",
     "expo-location": "~9.0.0",
@@ -53,8 +57,7 @@
     "react-native-vector-icons": "^7.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.1",
-    "react-navigation-material-bottom-tabs": "^2.3.1",
-    "expo-file-system": "~9.2.0"
+    "react-navigation-material-bottom-tabs": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

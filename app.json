@@ -25,7 +25,8 @@
           "location",
           "fetch"
         ]
-      }
+      },
+      "bundleIdentifier": "com.mediplus.app"
     },
     "web": {
       "favicon": "./assets/blueLogo.jpg"

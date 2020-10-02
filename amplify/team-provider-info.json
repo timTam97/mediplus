@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medhack-dev-180659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::670960088768:role/amplify-medhack-dev-180659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::670960088768:role/amplify-medhack-dev-180659-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-medhack-dev-180659-deployment",
+      "UnauthRoleName": "amplify-medhack-dev-180659-unauthRole",
+      "StackName": "amplify-medhack-dev-180659",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:670960088768:stack/amplify-medhack-dev-180659/3fa922f0-0486-11eb-bcb9-0a2a985e6e80",
+      "AmplifyAppId": "d33hs391kiszmv"
+    }
+  }
+}
