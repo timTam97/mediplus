@@ -1,12 +1,9 @@
 import * as React from 'react';
 import {StyleSheet, TouchableHighlight, Image} from 'react-native';
-import MapView, {LatLng} from 'react-native-maps';
+import MapView from 'react-native-maps';
 import * as DirectionUtil from '../components/MyDirectionAdapter';
-import * as Location from 'expo-location';
 import {Text, View} from 'react-native';
 import * as Linking from 'expo-linking';
-import {Marker} from 'react-native-svg';
-import {LocationGeocodedLocation} from 'expo-location';
 
 let appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000));
@@ -95,7 +92,7 @@ class UpdateDepartureTime extends React.Component {
             timeToLeaveMins: newMins,
             timeToLeaveSecs: newSecs,
             message: 'You are ' + globalAny.distanceText + ' away from the clinic.' +
-            ' You should leave in ' + newMins + ' minutes and ' + newSecs + ' seconds to arrive on time.',
+            '\nBased on your location, you should leave in ' + newMins + ' minutes and ' + newSecs + ' seconds to arrive on time.',
           }));
         },
         1000,
