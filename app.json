@@ -6,12 +6,12 @@
     "slug": "mediplus",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/blueLogo.jpg",
+    "icon": "./assets/BlueLogoTrim.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "githubUrl": "https://github.com/timTam97/mediplus",
     "splash": {
-      "image": "./assets/BlueLogoFull.jpg",
+      "image": "./assets/BlueLogoFull.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -30,9 +30,6 @@
         ]
       },
       "bundleIdentifier": "com.heyalice.mediplus"
-    },
-    "web": {
-      "favicon": "./assets/blueLogo.jpg"
     }
   }
 }
