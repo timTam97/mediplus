@@ -25,7 +25,10 @@ import {
 
 
 export default function App() {
-  Location.requestPermissionsAsync().then(() => console.log('we have location permissions'));
+  React.useEffect(() => {
+    Location.requestPermissionsAsync()
+      .then(() => console.log('we have location permissions'));
+  })
   const [fontsLoaded] = useFonts({
     Lato_100Thin,
     Lato_100Thin_Italic,

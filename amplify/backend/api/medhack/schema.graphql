@@ -1,0 +1,10 @@
+type Clinic @model {
+  id: ID!
+  name: String!
+  where: LatLong!
+}
+
+type LatLong {
+  latitude: Float!
+  longitude: Float!
+}

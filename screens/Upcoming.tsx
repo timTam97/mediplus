@@ -5,6 +5,17 @@ import * as DirectionUtil from '../components/MyDirectionAdapter';
 import {Text, View} from 'react-native';
 import * as Linking from 'expo-linking';
 
+import { API, graphqlOperation } from 'aws-amplify'
+import { createClinic } from '../graphql/mutations'
+import { listClinics } from '../graphql/queries'
+
+const initialState = { name: '', description: '' }
+
+import Amplify from 'aws-amplify'
+import config from '../aws-exports'
+Amplify.configure(config)
+
+
 let appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000));
 const globalAny: any = global;
@@ -67,7 +78,6 @@ class UpdateCountdown extends React.Component {
   }
 }
 
-
 class UpdateDepartureTime extends React.Component {
   componentDidMount() {
     this.state.intervalID = window.setInterval(
@@ -92,7 +102,8 @@ class UpdateDepartureTime extends React.Component {
             timeToLeaveMins: newMins,
             timeToLeaveSecs: newSecs,
             message: 'You are ' + globalAny.distanceText + ' away from the clinic.' +
-            '\nBased on your location, you should leave in ' + newMins + ' minutes and ' + newSecs + ' seconds to arrive on time.',
+            '\nBased on your location, you should leave in ' + newMins
+            + ' minutes and ' + newSecs + ' seconds to arrive on time.',
           }));
         },
         1000,
@@ -128,6 +139,36 @@ const dest = {
 const destAddress = dest.name + ' ' + dest.city + ' ' + dest.region + ' ' + dest.postalCode.replace(/ /g, '+');
 
 export default function Appointments({navigation}: any) {
+  const [formState, setFormState] = React.useState(initialState)
+  const [clinics, setClinics] = React.useState([])
+
+  React.useEffect(() => {
+    fetchClinics()
+  }, [])
+
+  function setInput(key: any, value: any) {
+    setFormState({ ...formState, [key]: value })
+  }
+
+  async function fetchClinics() {
+    try {
+      const clinicData = await API.graphql(graphqlOperation(listClinics))
+      console.log(clinicData)
+      const clinics = clinicData.data.listClinics.items
+      setClinics(clinics)
+    } catch (err) { console.log(err.errors[0]) }
+  }
+
+  async function addTodo() {
+    try {
+      const todo = { ...formState }
+      setClinics([...clinics, clinic])
+      setFormState(initialState)
+      await API.graphql(graphqlOperation(createClinic, {input: todo}))
+    } catch (err) {
+      console.log('error creating todo:', err)
+    }
+  }
   // let a: LocationGeocodedLocation;
   // Location.geocodeAsync("South Yarra Clinic").then((x) => a = x[0])
   return (
