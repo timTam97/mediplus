@@ -139,36 +139,7 @@ const dest = {
 const destAddress = dest.name + ' ' + dest.city + ' ' + dest.region + ' ' + dest.postalCode.replace(/ /g, '+');
 
 export default function Appointments({navigation}: any) {
-  const [formState, setFormState] = React.useState(initialState)
-  const [clinics, setClinics] = React.useState([])
-
-  React.useEffect(() => {
-    fetchClinics()
-  }, [])
-
-  function setInput(key: any, value: any) {
-    setFormState({ ...formState, [key]: value })
-  }
-
-  async function fetchClinics() {
-    try {
-      const clinicData = await API.graphql(graphqlOperation(listClinics))
-      console.log(clinicData)
-      const clinics = clinicData.data.listClinics.items
-      setClinics(clinics)
-    } catch (err) { console.log(err.errors[0]) }
-  }
-
-  async function addTodo() {
-    try {
-      const todo = { ...formState }
-      setClinics([...clinics, clinic])
-      setFormState(initialState)
-      await API.graphql(graphqlOperation(createClinic, {input: todo}))
-    } catch (err) {
-      console.log('error creating todo:', err)
-    }
-  }
+  
   // let a: LocationGeocodedLocation;
   // Location.geocodeAsync("South Yarra Clinic").then((x) => a = x[0])
   return (
