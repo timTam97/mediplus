@@ -1,0 +1,16 @@
+projects:
+  mediplus:
+    schemaPath: ../../../../../graphql/schema.json
+    includes:
+      - graphql/*
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: /graphql
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3

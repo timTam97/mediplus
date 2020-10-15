@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mediplus-dev-202837-authRole",
+      "UnauthRoleArn": "arn:aws:iam::670960088768:role/amplify-mediplus-dev-202837-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::670960088768:role/amplify-mediplus-dev-202837-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-mediplus-dev-202837-deployment",
+      "UnauthRoleName": "amplify-mediplus-dev-202837-unauthRole",
+      "StackName": "amplify-mediplus-dev-202837",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:670960088768:stack/amplify-mediplus-dev-202837/84ec8420-0d36-11eb-892a-02f23dfeffce",
+      "AmplifyAppId": "dqj600rapk9xs"
+    }
+  }
+}
