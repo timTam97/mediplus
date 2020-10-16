@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
-import {TouchableRipple} from 'react-native-paper';
+import {View, Text, StyleSheet, Image, Pressable, Linking, Platform} from 'react-native';
 
 export default function HealthInsights() {
   return (
@@ -21,14 +20,18 @@ export default function HealthInsights() {
           </View>
         </View>
         <View style={styles.row}>
-          <View style={styles.item}>
+          <Pressable style={styles.item} onPress={() => {
+            if (Platform.OS == "ios") {
+              Linking.openURL("x-apple-health://")
+            }
+          }}>
             <Text style={styles.stepsStrText}>
               Weekly steps:
             </Text>
             <Text style={styles.stepsNumText}>
               {global.weeklySteps}
             </Text>
-          </View>
+          </Pressable>
           <View style={{...styles.item, backgroundColor: '#D2E1FF'}}>
             <Image style={{height: '100%', width: '100%', borderRadius: 15}}
               source={require('../assets/images/Calories.png')}
