@@ -42,3 +42,16 @@ export type UserParamList = {
   User: undefined;
   HealthInsights: undefined;
 }
+
+declare global {
+  namespace NodeJS {
+    interface Global {
+       document: Document;
+       window: Window;
+       navigator: Navigator;
+       weeklySteps: number;
+       distanceText: string;
+       timeVal: number;
+    } 
+  }
+}
