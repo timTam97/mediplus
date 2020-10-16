@@ -7,7 +7,6 @@ import * as Linking from 'expo-linking';
 
 let appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000));
-const globalAny: any = global;
 
 class UpdateTime extends React.Component {
   // not time anymore, more of a countdown
@@ -72,7 +71,7 @@ class UpdateDepartureTime extends React.Component {
     this.state.intervalID = window.setInterval(
         () => {
         // console.log(this.state.counter)
-          if (typeof globalAny.distanceText === 'undefined' || typeof globalAny.timeVal === 'undefined') {
+          if (typeof global.distanceText === 'undefined' || typeof global.timeVal === 'undefined') {
             this.setState(() => ({
               message: 'Waiting on location data...',
             }));
@@ -80,8 +79,8 @@ class UpdateDepartureTime extends React.Component {
           } else if (!this.state.read) {
             this.setState(() => ({
               read: true,
-              timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
-              timeToLeaveSecs: globalAny.timeVal % 60,
+              timeToLeaveMins: Math.floor(global.timeVal / 60),
+              timeToLeaveSecs: global.timeVal % 60,
               message: 'Waiting on location data...',
             }));
           }
@@ -90,7 +89,7 @@ class UpdateDepartureTime extends React.Component {
           this.setState(() => ({
             timeToLeaveMins: newMins,
             timeToLeaveSecs: newSecs,
-            message: 'You are ' + globalAny.distanceText + ' away from the clinic.' +
+            message: 'You are ' + global.distanceText + ' away from the clinic.' +
             '\nBased on your location, you should leave in ' + newMins
             + ' minutes and ' + newSecs + ' seconds to arrive on time.',
           }));
@@ -104,8 +103,8 @@ class UpdateDepartureTime extends React.Component {
   state = {
     intervalID: 0,
     read: false,
-    timeToLeaveMins: Math.floor(globalAny.timeVal / 60),
-    timeToLeaveSecs: globalAny.timeVal % 60,
+    timeToLeaveMins: Math.floor(global.timeVal / 60),
+    timeToLeaveSecs: global.timeVal % 60,
     message: 'Waiting on location data...',
   }
   render() {
