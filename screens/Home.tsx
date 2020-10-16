@@ -9,9 +9,20 @@ const cardPadding = 30;
 const totalPadding = 26 * 3; // left-side, in-between, right-side
 const imageWidth = (screenWidth - totalPadding) / 2;
 const imageHeight = 150;
-const globalAny: any = global;
 
 export default function Home({navigation}) {
+  const end = new Date();
+  const start = new Date();
+  start.setDate(end.getDate() - 7);
+  Pedometer.getStepCountAsync(start, end).then(
+    result => {
+      console.log(result);
+      global.weeklySteps = result.steps;
+    },
+    error => {
+      console.log(error);
+    }
+  );
   getTravelTime()
       .then((data) => data.json())
       .then((data) => {
@@ -20,8 +31,8 @@ export default function Home({navigation}) {
         return data;
       })
       .then((data) => {
-        globalAny.distanceText = data.rows[0].elements[0].distance.text;
-        globalAny.timeVal = data.rows[0].elements[0].duration.value;
+        global.distanceText = data.rows[0].elements[0].distance.text;
+        global.timeVal = data.rows[0].elements[0].duration.value;
       });
   return (
     <SafeAreaView style={styles.container}>

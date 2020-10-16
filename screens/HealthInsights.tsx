@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
 
-
 export default function HealthInsights() {
   return (
     <View style={styles.container}>
@@ -23,10 +22,12 @@ export default function HealthInsights() {
         </View>
         <View style={styles.row}>
           <View style={styles.item}>
-            <Image style={{height: '100%', width: '100%', borderRadius: 15}}
-              source={require('../assets/images/Activity.png')}
-              resizeMode="contain">
-            </Image>
+            <Text style={styles.stepsStrText}>
+              Weekly steps:
+            </Text>
+            <Text style={styles.stepsNumText}>
+              {global.weeklySteps}
+            </Text>
           </View>
           <View style={{...styles.item, backgroundColor: '#D2E1FF'}}>
             <Image style={{height: '100%', width: '100%', borderRadius: 15}}
@@ -79,6 +80,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,
+  },
+  stepsStrText: {
+    color: "white",
+    alignSelf: "center",
+    fontFamily: "Lato_400Regular_Italic",
+    fontSize: 28
+  },
+  stepsNumText: {
+    color: "white",
+    alignSelf: "center",
+    fontFamily: "Lato_900Black",
+    fontSize: 35
   },
   sleepTrackerContainer: {
     alignSelf: 'center',
