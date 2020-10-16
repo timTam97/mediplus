@@ -5,3 +5,13 @@ declare namespace JSX {
         BottomNavigation: BottomNavigation
     }
   }
+
+declare global {
+    namespace NodeJS {
+      interface Global {
+         weeklySteps: number;
+         distanceText: string;
+         timeVal: number;
+      } 
+    }
+  }
