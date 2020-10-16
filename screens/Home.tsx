@@ -1,23 +1,8 @@
 import React from 'react';
 import {SafeAreaView, View, Text, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity, TouchableHighlight} from 'react-native';
 import {getTravelTime} from '../components/MyDirectionAdapter';
-import { API, graphqlOperation } from 'aws-amplify';
-// import { listClinics } from '../graphql/queries';
-import Amplify from 'aws-amplify'
-import config from '../aws-exports'
-Amplify.configure(config)
+import { Pedometer } from 'expo-sensors';
 
-let listClinics = `query MyQuery {
-  listClinics(filter: {name: {eq: "South Yarra Clinic"}}) {
-    items {
-      name
-      where {
-        latitude
-        longitude
-      }
-    }
-  }
-}`
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 const cardPadding = 30;
@@ -27,8 +12,6 @@ const imageHeight = 150;
 const globalAny: any = global;
 
 export default function Home({navigation}) {
-  API.graphql(graphqlOperation(listClinics))
-    .catch((x) => console.log(x.errors[0]))
   getTravelTime()
       .then((data) => data.json())
       .then((data) => {

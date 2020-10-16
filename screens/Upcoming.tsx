@@ -5,17 +5,6 @@ import * as DirectionUtil from '../components/MyDirectionAdapter';
 import {Text, View} from 'react-native';
 import * as Linking from 'expo-linking';
 
-import { API, graphqlOperation } from 'aws-amplify'
-import { createClinic } from '../graphql/mutations'
-import { listClinics } from '../graphql/queries'
-
-const initialState = { name: '', description: '' }
-
-import Amplify from 'aws-amplify'
-import config from '../aws-exports'
-Amplify.configure(config)
-
-
 let appointmentTime: number = Date.now();
 appointmentTime = appointmentTime + (48 * (60 * 60 * 1000));
 const globalAny: any = global;
