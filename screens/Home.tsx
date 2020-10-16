@@ -23,17 +23,22 @@ export default function Home({navigation}) {
       console.log(error);
     }
   );
-  getTravelTime()
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data.rows[0].elements[0].distance.text);
-        console.log(data.rows[0].elements[0].duration.text);
-        return data;
-      })
-      .then((data) => {
-        global.distanceText = data.rows[0].elements[0].distance.text;
-        global.timeVal = data.rows[0].elements[0].duration.value;
-      });
+
+  // I don't wanna go broke.
+  // Replacing this with dummy data.
+  // getTravelTime()
+  //     .then((data) => data.json())
+  //     .then((data) => {
+  //       console.log(data.rows[0].elements[0].distance.text);
+  //       console.log(data.rows[0].elements[0].duration.text);
+  //       return data;
+  //     })
+  //     .then((data) => {
+  //       global.distanceText = data.rows[0].elements[0].distance.text;
+  //       global.timeVal = data.rows[0].elements[0].duration.value;
+  //     });
+    global.distanceText = "25 km";
+    global.timeVal = 2500;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.greetingContainer}>
