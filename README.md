@@ -1,4 +1,4 @@
-# ![](https://mediplus-img-store.s3.amazonaws.com/BlueLogoFullTrim.jpg)
+# ![](https://i.imgur.com/WR06BBh.jpg)
 
 # Revolutionising your trip to the doctor, one screen at a time.
 
