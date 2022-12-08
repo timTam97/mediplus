@@ -49,7 +49,7 @@
     "react-native-screens": "~2.10.1",
     "react-native-slideable-calendar-strip": "^0.4.0",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-svg": "12.1.0",
+    "react-native-svg": "12.5.0",
     "react-native-swiper": "^1.6.0",
     "react-native-vector-icons": "^7.1.0",
     "react-native-web": "~0.13.12",
