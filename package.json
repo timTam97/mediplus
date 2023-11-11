@@ -14,7 +14,7 @@
   "dependencies": {
     "@expo-google-fonts/lato": "^0.1.0",
     "@expo/vector-icons": "^10.0.0",
-    "@googlemaps/google-maps-services-js": "^3.3.16",
+    "@googlemaps/google-maps-services-js": "^3.3.41",
     "@ovalmoney/react-native-fitness": "^0.4.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/netinfo": "^5.9.7",
